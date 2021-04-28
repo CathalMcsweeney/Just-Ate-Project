@@ -1,4 +1,3 @@
-
 function postComment() 
 {
     var xhr = new XMLHttpRequest();
