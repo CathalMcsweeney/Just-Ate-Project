@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "Justate",
+    "public": "public",
     "ignore": [
       "firebase.json",
       "**/.*",
