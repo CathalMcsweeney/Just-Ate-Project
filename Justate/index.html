@@ -15,6 +15,9 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+        <script src="js/getcomments.js"></script>
+        <script src="js/postcomment.js"></script>
+        <script src="js/deletecomment.js"></script>
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -32,6 +35,7 @@
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Team</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#login">Login</a></li>
                     </ul>
                 </div>
             </div>
@@ -44,6 +48,17 @@
                 <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
             </div>
         </header>
+
+        <section class="page-section" id="login">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Login</h2>
+                    <button class="btn btn-primary btn-xl text-uppercase" id="loginButton" type="submit">Login Button</button>
+                </div>
+            </div>
+        </section>
+
+
         <!-- Services-->
         <section class="page-section" id="services">
             <div class="container">
@@ -76,6 +91,13 @@
                         <h4 class="my-3">Web Security</h4>
                         <p class="text-muted">You can be sure that we have made sure to secure all of your data that we have stored, this included your personal details along with your bank details, bla bla bla.</p>
                     </div>
+                    <div class="text-center mt-4">
+                        <input type="text" placeholder="@handle" id="handle"> 
+                        <input type="text" placeholder="@comment" id="comment"> 
+                        <button onclick="postComment()">Post</button>
+                        <button onclick="getComments()">Get Comments</button>
+                        <div id="comments"></div>
+                  </div>
                 </div>
             </div>
         </section>
