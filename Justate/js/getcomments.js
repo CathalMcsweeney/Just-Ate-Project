@@ -47,4 +47,4 @@ function getComments()
     // Send the request to https://us-central1-my-cool-web-app-37271.cloudfunctions.net/getcomments
     xhr.send(null);
 }
-setInterval(getComments, 20000);
+//setInterval(getComments, 20000);
