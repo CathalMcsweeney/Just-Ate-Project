@@ -21,7 +21,7 @@ function postComment()
         }
     };
     xhr.send(JSON.stringify(
-    {"handle": document.getElementById('handle').value, "comment": document.getElementById('comment').value, "uid": getCookie('uid')}
+    {"handle": document.getElementById('handle').value, "restaurant": document.getElementById('restaurant').value, "rating": document.getElementById('rating').value, "comment": document.getElementById('comment').value, "uid": getCookie('uid')}
       )); 
 }
 
