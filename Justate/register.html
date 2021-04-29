@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <title>Register an Account</title>
-
+    <title>Register an Account with JustAte</title>
+<!--
     <h1 style="color:black">Setting Up an Account</h1>
+-->
 
     <style>
         img {
@@ -18,16 +19,18 @@
         }
 
         body {
-         background-image: url('backgroundimage2.jpg');
+         background-image: url('/assets/img/greywall.jpg');
+
         }
     </style>
 </head>
 
 <body>
-    <div style="background-image: url('backgroundimage2.jpg');">
+    <div style="background-image: url('/assets/img/greywall.jpg');">
 
         <div class="imgcontainer">
-            <img src="img_avatar1.png" alt="Avatar" width="400" height="400">
+            <img src="/assets/img/blueperson.jpg" alt="Avatar" width="400" height="400">
+
           </div>
     
     <div class="container">
@@ -41,6 +44,13 @@
             <label for="exampleInputPassword1">Password</label>
             <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
         </div>
+        <script>
+            function goBack() {
+                window.history.back();
+            }
+        </script>
+
+            <button onclick="goBack()" class="btn btn-secondary">Go Back</button>
         <button onclick="register()" class="btn btn-primary">Create Account</button>
     </div>
 
