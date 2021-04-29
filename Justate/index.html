@@ -33,7 +33,8 @@
                     <ul class="navbar-nav text-uppercase ml-auto">
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">Services</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Restaurants</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About US</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#reviews">Reviews</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About Us</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Team</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact Us</a></li>
                     </ul>
@@ -50,7 +51,6 @@
                 <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
             </div>
         </header>
-
 
         <!-- Services-->
         <section class="page-section" id="services">
@@ -84,13 +84,6 @@
                         <h4 class="my-3">Web Security</h4>
                         <p class="text-muted">You can be sure that we have made sure to secure all of your data that we have stored, this included your personal details along with your bank details, bla bla bla.</p>
                     </div>
-                    <div class="text-center mt-4">
-                        <input type="text" placeholder="@handle" id="handle"> 
-                        <input type="text" placeholder="@comment" id="comment"> 
-                        <button onclick="postComment()">Post</button>
-                        <button onclick="getComments()">Get Comments</button>
-                        <div id="comments"></div>
-                  </div>
                 </div>
             </div>
         </section>
@@ -189,6 +182,50 @@
                 </div>
             </div>
         </section>
+
+        <!-- Reviews-->
+        <section class="page-section bg-light" id="reviews">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Reviews of our Restaurants</h2>
+                    <h3 class="section-subheading text-muted">Reviews from our beloved customers</h3>
+                </div>
+                <div class="text-center mt-4">
+                    <form>
+                        <div class="row">
+                          <div class="col">
+                            <input type="text" class="form-control" placeholder="@handle" id="handle">
+                          </div>
+                          <div class="col">
+                            <input type="text" class="form-control" placeholder="@rating" id="rating">
+                          </div>
+                          <div class="col">
+                            <input type="text" class="form-control" placeholder="@restaurant" id="restaurant">
+<!--
+<select class="form-control" id="exampleFormControlSelect1">
+                              <option id="kfc">KFC</option>
+                              <option>Subway</option>
+                              <option>Boojum</option>
+                              <option>Mcdonalds</option>
+                              <option>Dominos</option>
+                              <option>Pizza Hut</option>
+                            </select>
+-->
+                          </div>
+                          <div class="col">
+                            <input type="text" class="form-control" placeholder="@comment" id="comment">
+                          </div>
+                          <div>
+                            <button class="btn btn-primary btn-xs text-uppercase" onclick="postComment()" type="submit">Post</button>
+                            <button class="btn btn-primary btn-xs text-uppercase" onclick="getComments()" type="submit">Get Comments</button>
+                          </div>                   
+                        </div>
+                      </form>
+                      <div id="comments"></div>
+              </div>
+            </div>
+        </section>
+
         <!-- About-->
         <section class="page-section" id="about">
             <div class="container">
@@ -198,17 +235,17 @@
                 </div>
                 <ul class="timeline">
                     <li>
-                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/1.jpg" alt="" /></div>
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/nuig.png" alt="" /></div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
                                 <h4>2019-2020 (1st Year)</h4>
                                 <h4 class="subheading">Our Humble Beginnings</h4>
                             </div>
-                            <div class="timeline-body"><p class="text-muted">Came into CS & IT course for MONEY!</p></div>
+                            <div class="timeline-body"><p class="text-muted">Started CS & IT</p></div>
                         </div>
                     </li>
                     <li class="timeline-inverted">
-                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/2.jpg" alt="" /></div>
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/friends.png" alt="" /></div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
                                 <h4>October 2020</h4>
@@ -218,7 +255,7 @@
                         </div>
                     </li>
                     <li>
-                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/3.jpg" alt="" /></div>
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/code.jpg" alt="" /></div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
                                 <h4>September 2020</h4>
@@ -228,7 +265,7 @@
                         </div>
                     </li>
                     <li class="timeline-inverted">
-                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/4.jpg" alt="" /></div>
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/justate.JPG" alt="" /></div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
                                 <h4>May 2021 </h4>
@@ -256,49 +293,49 @@
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">Our Amazing Team</h2>
-                    <h3 class="section-subheading text-muted">Our Amazing team of 4.5 (Cathals the half).</h3>
+                    <h3 class="section-subheading text-muted">Meet our team of 5.</h3>
                 </div>
                 <div class="row">
-                    <div class="col-lg-3">
+                    <div class="col-lg-2.5">
                         <div class="team-member">
-                            <img class="mx-auto rounded-circle" src="assets/img/team/cathal.png" alt="" />
-                            <h4>Cathal McSweeney</h4>
+                            <img class="mx-auto rounded-circle" src="assets/img/team/Fil.JPG" alt="" />
+                            <h4>Filipp Ruskih</h4>
                             <p class="text-muted">Lead Designer</p>
-                            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="https://www.linkedin.com/in/filipp-ruskih-78a4b8198/"><i class="fab fa-linkedin-in"></i></a>
                         </div>
                     </div>
-                    <div class="col-lg-3">
+                    <div class="col-lg-2.5">
                         <div class="team-member">
-                            <img class="mx-auto rounded-circle" src="assets/img/team/cathal.png" alt="" />
+                            <img class="mx-auto rounded-circle" src="assets/img/team/conor.JPG" alt="" />
                             <h4>Conor Naughton</h4>
                             <p class="text-muted">Lead Developer</p>
-                            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="https://www.linkedin.com/in/conor-naughton-5857b9195/"><i class="fab fa-linkedin-in"></i></a>
                         </div>
                     </div>
-                    <div class="col-lg-3">
+                    <div class="col-lg-2.5">
                         <div class="team-member">
-                            <img class="mx-auto rounded-circle" src="assets/img/team/cathal.png" alt="" />
+                            <img class="mx-auto rounded-circle" src="assets/img/team/richie.jpg" alt="" />
                             <h4>Richard Houston</h4>
                             <p class="text-muted">Lead Developer</p>
-                            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="https://www.linkedin.com/in/richard-houston-69a626175/"><i class="fab fa-linkedin-in"></i></a>
                         </div>
                     </div>
-                    <div class="col-lg-3">
+                    <div class="col-lg-2.5">
                       <div class="team-member">
-                          <img class="mx-auto rounded-circle" src="assets/img/team/cathal.png" alt="" />
-                          <h4>Cathal McSweeney</h4>
+                          <img class="mx-auto rounded-circle" src="assets/img/team/Jakub.jpg" alt="" />
+                          <h4>Jakub Kornacki</h4>
                           <p class="text-muted">Lead Designer</p>
-                          <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
-                          <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
-                          <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
+                          <a class="btn btn-dark btn-social mx-2" href="https://www.linkedin.com/in/jakub-kornacki-82b234198/"><i class="fab fa-linkedin-in"></i></a>
                       </div>
                   </div>
+                  <div class="col-lg-2.5">
+                    <div class="team-member">
+                        <img class="mx-auto rounded-circle" src="assets/img/team/cathal.jpg" alt="" />
+                        <h4>Cathal McSweeney</h4>
+                        <p class="text-muted">Lead Designer</p>
+                        <a class="btn btn-dark btn-social mx-2" href="https://www.linkedin.com/in/cathal-mcsweeney-b68690166/"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-8 mx-auto text-center"><p class="large text-muted">Designers and developers of the JustAte Web App Using Firebase. An app that allows users to order multiple takeaways in the same order at the same time.</p></div>
@@ -365,13 +402,9 @@
         <footer class="footer py-4">
             <div class="container">
                 <div class="row align-items-center">
-                    <div class="col-lg-4 text-lg-left">Copyright © Your Website 2020</div>
-                    <div class="col-lg-4 my-3 my-lg-0">
-                        <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                    <div class="col-lg-4 text-lg-right">
+                    <div class="col-lg-6 text-lg-left">Copyright © Your Website 2020</div>
+                
+                    <div class="col-lg-6 text-lg-right">
                         <a class="mr-3" href="#!">Privacy Policy</a>
                         <a href="#!">Terms of Use</a>
                     </div>
