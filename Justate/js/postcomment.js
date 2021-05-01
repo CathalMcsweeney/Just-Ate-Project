@@ -1,7 +1,14 @@
 function postComment() 
 {
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'https://us-central1-justateapp.cloudfunctions.net/postcomments');
+    if(location.hostname === "localhost" || location.hostname === "127.0.0.1")
+      {
+        xhr.open('POST', 'http://localhost:5001/justateapp/us-central1/postcomments');
+      }
+    else
+      {
+        xhr.open('POST', 'https://us-central1-justateapp.cloudfunctions.net/postcomments');
+      }
     xhr.setRequestHeader("Content-type", "application/json"); // Track the state changes of the request. 
     xhr.onreadystatechange = function () 
     {   
