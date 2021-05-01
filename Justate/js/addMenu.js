@@ -96,14 +96,12 @@ function getItems(section){
 
 
 function validateForm(infoObj, starters, mains, desserts){
-   
     // for all fields in the info object, check for missing information
     for(var key in infoObj) {
         if(infoObj[key] == null || infoObj[key] == "") {
            return false;
         } 
     }
-
     // check if any item/price/preptime field in it the object array is empty
     if(starters.some(it => it.item === '') || starters.some(pr => pr.price === '' || isNaN(pr.price)) || starters.some(pre => pre.preptime === '')) {
         return false;
