@@ -14,8 +14,6 @@ exports.postcomments = functions.https.onRequest((request, response) => {
       response.send('Saved in the database');
     });
   });
-  //console.log(request.body);
-  //response.send(request.body);
 });
 
 exports.postRestaurant = functions.https.onRequest((request, response) => {
