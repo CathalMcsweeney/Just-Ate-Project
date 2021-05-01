@@ -1,4 +1,3 @@
-
 // GET comments
 function getComments() 
 {
@@ -30,8 +29,10 @@ function getComments()
                     for (var i = 0; i < data.length; i++) 
                     {
                         sHTML += "<p> Handle: " + data[i].handle + "</p>"; 
+                        sHTML += "<p> Restaurant: " + data[i].restaurant + "</p>"; 
+                        sHTML += "<p> Rating: " + data[i].rating + "</p>"; 
                         sHTML += "<p> Comment: " + data[i].comment + "</p>"; 
-                        sHTML += "<button onclick = deleteComment(" + "'"+ data[i].id + "'" + ")> Delete Comment </button>";
+                        sHTML += "<button class='btn btn-primary btn-xs text-uppercase' onclick = deleteComment(" + "'"+ data[i].id + "'" + ")> Delete Comment </button>";
                         comments.innerHTML = sHTML;
                     }
                 }           
@@ -46,4 +47,4 @@ function getComments()
     // Send the request to https://us-central1-my-cool-web-app-37271.cloudfunctions.net/getcomments
     xhr.send(null);
 }
-setInterval(getComments, 20000);
+//setInterval(getComments, 20000);

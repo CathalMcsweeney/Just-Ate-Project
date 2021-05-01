@@ -43,7 +43,7 @@ function logout() {
     // Reset cookie    
     document.cookie = "accessToken= ";
     // Redirect to the home page    
-    window.location.href = "/index.html"
+    window.location.href = "/index.html";
     // Sign-out successful.
   }).catch((error) => {
     // An error happened.
