@@ -1,5 +1,6 @@
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
+const { request } = require('chai');
 const cors = require('cors')({ origin: true });
 
 admin.initializeApp();
@@ -16,6 +17,14 @@ exports.postcomments = functions.https.onRequest((request, response) => {
   });
   //console.log(request.body);
   //response.send(request.body);
+});
+
+exports.postRestaurant = functions.https.onRequest((request, response) => {
+  cors(request,response, () => {
+    return admin.firestore().collection('restaurants').add(request.body).then(() => {
+      response.send('Restaurant saved successfully');
+    });
+  });
 });
 
 exports.getcomments = functions.https.onRequest((request, response) => {

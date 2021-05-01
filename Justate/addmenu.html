@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+     <!-- Logos -->
+<img src="assets/img/logo.jpeg" style="width: 10%; height:auto">
+<div class="container">
+  <div class="row">
+    <img src="assets/img/logo.jpeg" class="mx-auto d-block">
+  </div>
+</div>
+
+ <!-- General info about the restaurant -->
+<div class="container">
+  <div class="card">
+    <h10 class="card-title text-center font-weight-bold">General Information</h10>
+    <div class="card-body">
+
+      <div class="row">
+        <div class="form-group col-12">
+           <input type="text" id="inpName"class="form-control col-xs-3" placeholder="Restaurant name" >
+        </div>
+       </div> 
+
+       <div class="row">
+        <div class="form-group col-6">
+           <input type="text"  id="inpCuisine" class="form-control col-xs-3" placeholder="Restaurant Cuisine" >
+        </div>
+        <div class="form-group col-6">
+            <input type="text" id="inpOrdLim" class="form-control col-xs-3" placeholder="Restaurant Order Limit" >
+         </div>
+       </div> 
+
+       <div class="row">
+        <div class="form-group col-6">
+            <input type="text" id="inpwWekdayOT" class="form-control col-xs-3" placeholder="Weekday Opening Time" >
+         </div>
+         <div class="form-group col-6">
+            <input type="text" id="inpWeekdayCT" class="form-control col-xs-3" placeholder="Weekday Closing Time" >
+         </div>
+       </div>
+
+       <div class="row">
+        <div class="form-group col-6">
+            <input type="text" id="inpWeekendOT"class="form-control col-xs-3" placeholder="Weekend Opening Time" >
+         </div>
+         <div class="form-group col-6">
+            <input type="text" id="inpWeekendCT" class="form-control col-xs-3" placeholder="Weekend Closing Time" >
+         </div>
+       </div>
+      </div>
+      </div>
+</div>
+ <!-- starter section -->
+<div class="container">
+    <div class="card" id="starterItems">
+        <h10 class="card-title text-center font-weight-bold">Starter Section</h10>
+         <div class="card-body">
+        <div class="row">
+            <div class="form-group col-6">
+                <input type="text"  class="form-control col-xs-3" placeholder="Item name">
+             </div>
+             <div class="form-group col-2">
+                <input type="text"  class="form-control col-xs-3" placeholder="Price €">
+             </div>
+             <div class="form-group col-2">
+                <input type="text"  class="form-control col-xs-3" placeholder="Prep Time (Min)">
+             </div>
+             <div class="col-2">
+               <button onclick="addItem('starter');" class="btn btn-warning">+</button>
+               <button onclick="deleteItem('starter');" class="btn btn-warning">-</button>
+            </div>
+        </div>
+      </div>
+    </div>
+</div>
+ <!-- main section -->
+<div class="container">
+    <div class="card" id="mainItems">
+    <h10 class="card-title text-center font-weight-bold">Main Section</h10>
+    <div class="card-body">
+    <div class="row">
+        <div class="form-group col-6">
+            <input type="text" class="form-control col-xs-3" placeholder="Item name">
+         </div>
+         <div class="form-group col-2">
+            <input type="text" class="form-control col-xs-3" placeholder="Price €">
+         </div>
+         <div class="form-group col-2">
+            <input type="text" class="form-control col-xs-3" placeholder="Prep Time (Min)">
+         </div>
+         <div class="col-2">
+           <button onclick="addItem('main');" class="btn btn-warning">+</button>
+           <button onclick="deleteItem('main');" class="btn btn-warning">-</button>
+        </div>
+      </div>
+   </div>
+   </div>
+    </div>
+</div>
+ <!-- dessert section -->
+<div class="container">
+    <div class="card" id="dessertItems">
+    <h10 class="card-title text-center font-weight-bold">Dessert Section</h10>
+      <div class="card-body">
+    <div class="row">
+        <div class="form-group col-6">
+            <input type="text" class="form-control col-xs-3" placeholder="Item name">
+         </div>
+         <div class="form-group col-2">
+            <input type="text" class="form-control col-xs-3" placeholder="Price €">
+         </div>
+         <div class="form-group col-2">
+            <input type="text" class="form-control col-xs-3" placeholder="Prep Time (Min)">
+         </div>
+         <div class="col-2">
+           <button onclick="addItem('dessert');" class="btn btn-warning">+</button>
+           <button onclick="deleteItem('dessert');" class="btn btn-warning">-</button>
+        </div>
+    </div>
+    </div>
+   </div>
+</div>
+<div class="container">
+   <div class="card">
+   <div class="row">
+      <div class="col text-center">
+        <button type="submit" onclick="postRestaurant();" class="btn btn-warning btn-lg row=6">Publish your restaurant!</button>
+      </div>
+   </div>
+  </div>
+</div>
+
+   <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="/__/firebase/8.3.0/firebase-app.js"></script>
+    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+    <script src="/__/firebase/8.3.0/firebase-analytics.js"></script><!-- Add Firebase products that you want to use -->
+    <script src="/__/firebase/8.3.0/firebase-auth.js"></script>
+    <script src="/__/firebase/8.3.0/firebase-firestore.js"></script><!-- Initialize Firebase -->
+    <script src="/__/firebase/init.js"></script>
+    <script src="js/addMenu.js"></script>
+    
+
+
+</body>
+</html>
