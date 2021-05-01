@@ -11,7 +11,7 @@ function addItem(section){
    }
     var newDiv = document.createElement("div");
      // hardcoded row with 3 cells -> item name & price & prep time
-    newDiv.innerHTML = "<div class='row'><div class='form-group col-6'><input type='text' class='form-control col-xs-3' placeholder='Item'></div><div class='form-group col-2'><input type='text' class='form-control col-xs-3' placeholder='Price'></div><div class='form-group col-2'><input type='text'class='form-control col-xs-3' placeholder='Prep Time'></div></div>";
+    newDiv.innerHTML = "<div class='card-body'><div class='row'><div class='form-group col-6'><input type='text' class='form-control col-xs-3' placeholder='Item'></div><div class='form-group col-2'><input type='text' class='form-control col-xs-3' placeholder='Price'></div><div class='form-group col-2'><input type='text'class='form-control col-xs-3' placeholder='Prep Time'></div></div></div>";
     parentDiv.appendChild(newDiv);
 }
 
@@ -31,11 +31,8 @@ function deleteItem(section){
    }
 }
 
-function populateObjects(){
-    //TODO: extract the data from input fields
+function postRestaurant(){
     var info = { name:"",cuisine:"",orderlim:"",weekdayOpen:"",weekdayClose:"",weekendOpen:"",weekendClose:""};
-
-
     info.name = document.getElementById("inpName").value;
     info.cuisine = document.getElementById("inpCuisine").value;
     info.orderlim = document.getElementById("inpOrdLim").value;
@@ -43,20 +40,82 @@ function populateObjects(){
     info.weekdayClose = document.getElementById("inpWeekdayCT").value;
     info.weekendOpen = document.getElementById("inpWeekendOT").value;
     info.weekendClose = document.getElementById("inpWeekendCT").value;
-
-    if(!checkInputFields(infoObj)) {
-        alert("Fill out the form!");
-        return;
-    }
     
+    var starters = getItems("starterItems");
+    var mains =  getItems("mainItems");
+    var desserts =  getItems("dessertItems");
+    
+    
+    if(!validateForm(info, starters, mains, desserts)) {
+        alert("Include all correctly formatted information!");
+        return;
+    } else {
+        var xhr = new XMLHttpRequest();
+        if(location.hostname === "localhost" || location.hostname === "127.0.0.1")
+        {
+            xhr.open('POST', 'http://localhost:5001/justateapp/us-central1/postRestaurant');
+        }
+        else
+        {
+            xhr.open('POST', 'https://us-central1-justateapp.cloudfunctions.net/postRestaurant');
+        }
+        xhr.setRequestHeader("Content-type", "application/json");
+       
+        xhr.onreadystatechange = function () {
+            if(xhr.readyState === 4) {
+                if(xhr.status === 200) {
+                    // ready and ok
+                    alert("Posting your restaurant!");
+                }
+                else {
+                    console.log("Error " + xhr.status);
+                }
+            }
+        }
+        //concat and stringify all objects into a JSON object and send it
+        var allData = Object.assign(info, {"starters":starters},{"mains":mains},{"desserts":desserts});
+        xhr.send(JSON.stringify(allData));
+    }   
 }
-// for all fields in the info object, check for missing information
-function checkInputFields(infoObj){
-    for(var key in infoObj){
-        var temp = infoObj[key];
-        if(temp.length == null) {
-            return false;
+
+function getItems(section){
+    // empty object used to filter out data from the fields
+   var itemObj = { item:"",price:"",preptime:"" };
+   var itemsArr = [];
+   // get the parent of dessertItems && all child nodes of it, get data from three fields at a time
+   var inputFields = document.getElementById(section).getElementsByTagName('input');
+   for(var i = 0; i < inputFields.length; i+=3) {
+       itemObj.item = inputFields[i].value;
+       itemObj.price = inputFields[i+1].value;
+       itemObj.preptime = inputFields[i+2].value;
+       itemsArr.push(itemObj);
+   }
+   return itemsArr;
+}
+
+
+
+function validateForm(infoObj, starters, mains, desserts){
+   
+    // for all fields in the info object, check for missing information
+    for(var key in infoObj) {
+        if(infoObj[key] == null || infoObj[key] == "") {
+           return false;
         } 
     }
+
+    // check if any item/price/preptime field in it the object array is empty
+    if(starters.some(it => it.item === '') || starters.some(pr => pr.price === '' || isNaN(pr.price)) || starters.some(pre => pre.preptime === '')) {
+        return false;
+    }
+
+    if(mains.some(it => it.item === '') || mains.some(pr => pr.price === '' || isNaN(pr.price)) || mains.some(pre => pre.preptime === '')) {
+        return false;
+    }
+
+    if(desserts.some(it => it.item === '') || desserts.some(pr => pr.price === '' || isNaN(pr.price) ) || desserts.some(pre => pre.preptime === '')) {
+        return false;
+    }
+    // all tests passed successfully
     return true;
 }
