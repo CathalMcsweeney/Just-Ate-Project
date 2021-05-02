@@ -21,14 +21,13 @@
 
     <style>
         img {
-          display: block;
           margin-left: auto;
           margin-right: auto;
           border-radius: 50%;
         }
 
         body {
-         background-image: url('/assets/img/about/maps.jpg');
+         background-image: url('/assets/img/orange.jpg');
         }
     </style>
 </head>
@@ -37,7 +36,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
         <div class="container">
-            <a class="navbar-brand js-scroll-trigger" onclick="window.location.href='/index.html'"><img src="assets/img/logo.jpeg" alt="" /></a>
+            <a class="navbar-brand" onclick="window.location.href='/index.html'"><img src="assets/img/logo.jpeg" alt="" /></a>
             
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 Menu
@@ -45,10 +44,10 @@
             </button>
         </div>
         <div>
-            <button class="btn btn-link btn-xs text-uppercase" onclick="window.location.href='/index.html'" type="submit">HOME</button>
+            <button class="btn btn-link btn-xs text-uppercase" style="color:black" onclick="window.location.href='/index.html'" type="submit">HOME</button>
         </div>
         <div>
-            <button class="btn btn-link btn-xs text-uppercase" onclick="window.location.href='/register.html'" type="submit">Register Button</button>
+            <button class="btn btn-link btn-xs text-uppercase" style="color:black" onclick="window.location.href='/register.html'" type="submit">Register Button</button>
         </div>
     </nav>
 
@@ -56,7 +55,7 @@
         <div class="imgcontainer">
             <img id="bkimage" src="/assets/img/greenperson.jpg" alt="Avatar" width="400" height="400">
         </div>
-        <div class="container">
+        <div class="container" style="width:33%">
             <div class="form-group"> 
                 <label for="exampleInputEmail1">Email address</label> 
                 <input type="email"

@@ -17,10 +17,8 @@
           margin-right: auto;
           border-radius: 50%;
         }
-
         body {
          background-image: url('/assets/img/greywall.jpg');
-
         }
     </style>
 </head>
@@ -30,10 +28,9 @@
 
         <div class="imgcontainer">
             <img src="/assets/img/blueperson.jpg" alt="Avatar" width="400" height="400">
-
-          </div>
+        </div>
     
-    <div class="container">
+    <div class="container" style="width:500px;">
         <div class="form-group">
             <label for="exampleInputEmail1">Email address</label>
             <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
@@ -44,13 +41,20 @@
             <label for="exampleInputPassword1">Password</label>
             <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
         </div>
+        <div class="form-check" style="padding-left:120px; width:500px;" >
+            <input type="radio" name="isRestaurant" id="cust" value="customer">
+            <label for="inlineRadio1">CUSTOMER</label>
+            <input type="radio" name="isRestaurant" id="rest" value="restaurant">
+            <label for="inlineRadio1">RESTAURANT</label>
+        </div>
         <script>
             function goBack() {
                 window.history.back();
             }
         </script>
 
-            <button onclick="goBack()" class="btn btn-secondary">Go Back</button>
+        <button onclick="goBack()" class="btn btn-secondary">Go Back</button>
+        
         <button onclick="register()" class="btn btn-primary">Create Account</button>
     </div>
 

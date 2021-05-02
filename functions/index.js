@@ -14,16 +14,14 @@ exports.postcomments = functions.https.onRequest((request, response) => {
       response.send('Saved in the database');
     });
   });
-  //console.log(request.body);
-  //response.send(request.body);
 });
 
 exports.postRestaurant = functions.https.onRequest((request, response) => {
-  cors(request,response, async() => {
-    return admin.firestore().collection('restaurants').add(request.body).then(() => {
+    cors(request,response, () => {
+      return admin.firestore().collection('restaurants').add(request.body).then(() => {
       response.send('Restaurant saved successfully');
     });
-  });
+  }); 
   console.log(request.body);
   response.send(request.body);
 });
@@ -108,4 +106,20 @@ exports.authorizedendpoint = functions.https.onRequest((request, response) => {
       return;
     }
   });
+});
+
+exports.restaurantUsers = functions.https.onRequest((request, response) => {
+  cors(request,response, () => {
+    return admin.firestore().collection('restaurantEmails').add(request.body).then(() => {
+    response.send('Restaurant saved successfully');
+  });
+}); 
+});
+
+exports.customerUsers = functions.https.onRequest((request, response) => {
+  cors(request,response, () => {
+    return admin.firestore().collection('customerEmails').add(request.body).then(() => {
+    response.send('Customer saved successfully');
+  });
+}); 
 });
