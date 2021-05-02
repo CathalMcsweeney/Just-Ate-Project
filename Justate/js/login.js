@@ -1,6 +1,8 @@
 function login() 
 {
-    let email = document.getElementById('exampleInputEmail1').value    
+    let email = document.getElementById('exampleInputEmail1').value   
+    
+    // if email is contained in collection of restaurants 
     let password = document.getElementById('exampleInputPassword1').value   
 
     firebase.auth().signInWithEmailAndPassword(email, password)

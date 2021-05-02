@@ -98,7 +98,6 @@ function getItems(section){
 
 
 function validateForm(infoObj, starters, mains, desserts){
-   
     // for all fields in the info object, check for missing information
     for(var key in infoObj) {
         if(infoObj[key] == null || infoObj[key] == "") {
