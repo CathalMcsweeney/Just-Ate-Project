@@ -2,27 +2,36 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+      body { background-image: url(assets/img/backgroundimage2.jpg);}
+   </style> 
 </head>
 
 <body>
      <!-- Logos -->
-<img src="assets/img/logo.jpeg" style="width: 10%; height:auto">
+<img src="assets/img/logo-transparent.png" style="width: 10%; height:auto">
 <div class="container">
   <div class="row">
-    <img src="assets/img/logo.jpeg" class="mx-auto d-block">
+    <img src="assets/img/logo-transparent.png" class="mx-auto d-block">
   </div>
 </div>
 
  <!-- General info about the restaurant -->
 <div class="container">
   <div class="card">
-    <h10 class="card-title text-center font-weight-bold">General Information</h10>
+    <h10 class="card-header text-center font-weight-bold text-white bg-primary">General Information</h10>
     <div class="card-body">
 
       <div class="row">
-        <div class="form-group col-12">
+        <div class="form-group col-4">
            <input type="text" id="inpName"class="form-control col-xs-3" placeholder="Restaurant name" >
         </div>
+        <div class="form-group col-4">
+         <input type="text" id="latitude"class="form-control col-xs-3" placeholder="Latitude" >
+      </div>
+      <div class="form-group col-4">
+         <input type="text" id="longitude"class="form-control col-xs-3" placeholder="Longitude" >
+      </div>
        </div> 
 
        <div class="row">
@@ -57,7 +66,7 @@
  <!-- starter section -->
 <div class="container">
     <div class="card" id="starterItems">
-        <h10 class="card-title text-center font-weight-bold">Starter Section</h10>
+        <h10 class="card-header text-center font-weight-bold text-white bg-success">Starter Section</h10>
          <div class="card-body">
         <div class="row">
             <div class="form-group col-6">
@@ -80,7 +89,7 @@
  <!-- main section -->
 <div class="container">
     <div class="card" id="mainItems">
-    <h10 class="card-title text-center font-weight-bold">Main Section</h10>
+    <h10 class="card-header text-center font-weight-bold text-white bg-danger">Main Section</h10>
     <div class="card-body">
     <div class="row">
         <div class="form-group col-6">
@@ -104,7 +113,7 @@
  <!-- dessert section -->
 <div class="container">
     <div class="card" id="dessertItems">
-    <h10 class="card-title text-center font-weight-bold">Dessert Section</h10>
+    <h10 class="card-header text-center font-weight-bold text-white bg-info">Dessert Section</h10>
       <div class="card-body">
     <div class="row">
         <div class="form-group col-6">
