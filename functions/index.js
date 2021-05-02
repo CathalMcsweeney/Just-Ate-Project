@@ -22,6 +22,8 @@ exports.postRestaurant = functions.https.onRequest((request, response) => {
       response.send('Restaurant saved successfully');
     });
   }); 
+  console.log(request.body);
+  response.send(request.body);
 });
 
 exports.getcomments = functions.https.onRequest((request, response) => {

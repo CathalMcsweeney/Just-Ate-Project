@@ -18,6 +18,47 @@
         <script src="js/getcomments.js"></script>
         <script src="js/postcomment.js"></script>
         <script src="js/deletecomment.js"></script>
+
+
+        <style>
+            * {
+              box-sizing: border-box;
+            }
+            
+            /* Float four columns side by side */
+            .column {
+              float: left;
+              width: 25%;
+              padding: 10px 10px;
+            }
+            
+            /* Remove extra left and right margins, due to padding */
+            .row {margin: 0 -5px;}
+            
+            /* Clear floats after the columns */
+            .row:after {
+              content: "";
+              display: table;
+              clear: both;
+            }
+            
+            /* Responsive columns */
+            @media screen and (max-width: 1000px) {
+              .column {
+                width: 100%;
+                display: block;
+                margin-bottom: 20px;
+              }
+            }
+            
+            /* Style the counter cards */
+            .card {
+              box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+              padding: 16px;
+              text-align: center;
+              background-color: #f1f1f1;
+            }
+            </style>
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -39,8 +80,10 @@
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact Us</a></li>
                     </ul>
                 </div>
-                <button class="btn btn-link btn-xs text-uppercase" onclick="window.location.href='/login.html'" type="submit">Login Button</button>
-                <button class="btn btn-link btn-xs text-uppercase" onclick="window.location.href='/register.html'" type="submit">Register Button</button>
+                <button class="btn btn-link btn-xs text-uppercase" onclick="window.location.href='/login.html'" type="submit">Login</button>
+                <button class="btn btn-link btn-xs text-uppercase" onclick="window.location.href='/register.html'" type="submit">Register</button>
+                <button class="btn btn-link btn-xs text-uppercase" onclick="window.location.href='/payment.html'" type="submit">Basket</button>
+
             </div>
         </nav>
         <!-- Masthead-->
@@ -401,15 +444,72 @@
                     <div class="close-modal" data-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
                     <div class="container">
                         <div class="row justify-content-center">
-                            <div class="col-lg-8">
+                            <div class="col-lg-16">
                                 <div class="modal-body">
                                     <!-- Project Details Go Here-->
                                     <h2 class="text-uppercase">Kentucky Fried Chicken - KFC </h2>
                                     <p class="item-intro text-muted">Our menu will surprise you.</p>
                                     <!--<img class="img-fluid d-block mx-auto" src="assets/img/portfolio/01-full.jpg" alt="" />-->
-                                    <p class="item-intro text-muted">Make a table with a tick selection to be able to tick off and choose items of the menu</p>
-
-                                    <p>Use this area to describe your project. !</p>
+                                        <div class="row">
+                                            <div class="column" class="cols">
+                                              <div class="card">
+                                                <h3>Chicken wings</h3>
+                                                <img src="/assets/img/about/wings.jpg">
+                                                <p>€4.99</p>
+                                                <p>KFC special text</p>
+                                                <p><button>Add to Cart</button></p>
+                                              </div>
+                                            </div>
+                                          
+                                            <div class="column">
+                                              <div class="card">
+                                                <h3>Chicken wings</h3>
+                                                <img src="/assets/img/about/wings.jpg">
+                                                <p>€4.99</p>
+                                                <p>KFC special text</p>
+                                                <p><button>Add to Cart</button></p>
+                                              </div>
+                                            </div>
+                                            <div class="column">
+                                                <div class="card">
+                                                  <h3>Chicken wings</h3>
+                                                  <img src="/assets/img/about/wings.jpg">
+                                                  <p>€4.99</p>
+                                                  <p>KFC special text</p>
+                                                  <p><button>Add to Cart</button></p>
+                                                </div>
+                                              </div>
+                                              <div class="column">
+                                                <div class="card">
+                                                  <h3>Chicken wings</h3>
+                                                  <img src="/assets/img/about/wings.jpg">
+                                                  <p>€4.99</p>
+                                                  <p>KFC special text</p>
+                                                  <p><button>Add to Cart</button></p>
+                                                </div>
+                                              </div>
+                                            
+                                              <div class="column">
+                                                <div class="card">
+                                                  <h3>Chicken wings</h3>
+                                                  <img src="/assets/img/about/wings.jpg">
+                                                  <p>€4.99</p>
+                                                  <p>KFC special text</p>
+                                                  <p><button>Add to Cart</button></p>
+                                                </div>
+                                              </div>
+                                              <div class="column">
+                                                  <div class="card">
+                                                    <h3>Chicken wings</h3>
+                                                    <img src="/assets/img/about/wings.jpg">
+                                                    <p>€4.99</p>
+                                                    <p>KFC special text</p>
+                                                    <p><button>Add to Cart</button></p>
+                                                  </div>
+                                                </div>
+                                          
+                                       
+                                        </div>
                                     <ul class="list-inline">
                                         <li>Date: January 2020 // Make the total amount of items in the basket from this restaurant here</li>
                                         <li>Client: Threads // List the items in the basket</li>
