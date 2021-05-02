@@ -32,8 +32,10 @@ function deleteItem(section){
 }
 
 function postRestaurant(){
-    var info = { name:"",cuisine:"",orderlim:"",weekdayOpen:"",weekdayClose:"",weekendOpen:"",weekendClose:""};
+    var info = { name:"",latitude:"",longitude:"",cuisine:"",orderlim:"",weekdayOpen:"",weekdayClose:"",weekendOpen:"",weekendClose:""};
     info.name = document.getElementById("inpName").value;
+    info.latitude = document.getElementById("latitude").value;
+    info.longitude = document.getElementById("longitude").value;
     info.cuisine = document.getElementById("inpCuisine").value;
     info.orderlim = document.getElementById("inpOrdLim").value;
     info.weekdayOpen = document.getElementById("inpwWekdayOT").value;
@@ -102,6 +104,11 @@ function validateForm(infoObj, starters, mains, desserts){
            return false;
         } 
     }
+
+    if(isNaN(infoObj.latitude) || isNaN(infoObj.longitude)){
+        return false;
+    }
+
     // check if any item/price/preptime field in it the object array is empty
     if(starters.some(it => it.item === '') || starters.some(pr => pr.price === '' || isNaN(pr.price)) || starters.some(pre => pre.preptime === '')) {
         return false;
