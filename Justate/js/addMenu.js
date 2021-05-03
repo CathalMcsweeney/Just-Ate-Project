@@ -1,4 +1,3 @@
-
 function addItem(section){
     var parentDiv;
     // get correct container
@@ -46,7 +45,8 @@ function postRestaurant(){
     var starters = getItems("starterItems");
     var mains =  getItems("mainItems");
     var desserts =  getItems("dessertItems");
-    
+  
+
     
     if(!validateForm(info, starters, mains, desserts)) {
         alert("Include all correctly formatted information!");
@@ -61,8 +61,8 @@ function postRestaurant(){
         {
             xhr.open('POST', 'https://us-central1-justateapp.cloudfunctions.net/postRestaurant');
         }
-        xhr.setRequestHeader("Content-type", "application/json");
-       
+    
+        xhr.setRequestHeader("Content-type", "application/json"); // Track the state changes of the request. 
         xhr.onreadystatechange = function () {
             if(xhr.readyState === 4) {
                 if(xhr.status === 200) {
@@ -74,19 +74,20 @@ function postRestaurant(){
                 }
             }
         }
-        //concat and stringify all objects into a JSON object and send it
-        var allData = Object.assign(info, {"starters":starters},{"mains":mains},{"desserts":desserts});
+        
+        
+        //concat and stringify all objects into a JSON object and send it using _.merge function from lodash library to avoid objects being overwritten
+        var allData = _.merge(info,{"starters":starters},{"mains":mains},{"desserts":desserts});
         xhr.send(JSON.stringify(allData));
     }   
 }
 
 function getItems(section){
-    // empty object used to filter out data from the fields
-   var itemObj = { item:"",price:"",preptime:"" };
    var itemsArr = [];
    // get the parent of dessertItems && all child nodes of it, get data from three fields at a time
    var inputFields = document.getElementById(section).getElementsByTagName('input');
    for(var i = 0; i < inputFields.length; i+=3) {
+        var itemObj = { item:"",price:"",preptime:"" };
        itemObj.item = inputFields[i].value;
        itemObj.price = inputFields[i+1].value;
        itemObj.preptime = inputFields[i+2].value;

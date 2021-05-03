@@ -22,8 +22,6 @@ exports.postRestaurant = functions.https.onRequest((request, response) => {
       response.send('Restaurant saved successfully');
     });
   }); 
-  console.log(request.body);
-  response.send(request.body);
 });
 
 exports.getcomments = functions.https.onRequest((request, response) => {
@@ -46,6 +44,30 @@ exports.getcomments = functions.https.onRequest((request, response) => {
       response.send(myData);
     })
   })
+});
+
+
+
+
+exports.getrestaurants = functions.https.onRequest((request,response) => {
+  cors(request, response, () =>{
+    let restaurants = [];
+    admin.firestore().collection('restaurants').get().then((snapshot) =>{
+        if(snapshot.empty) {
+          console.log("Restaurants collection empty");
+          response.send("Restaurants collection empty");
+          return;
+        }
+
+        snapshot.forEach(doc => {
+          let restaurant = {};
+          restaurant.id = doc.id;
+          restaurants.push(Object.assign(restaurant, doc.data()));
+        });
+
+        response.send(restaurants);
+    });
+  });
 });
 
 exports.deletecomment = functions.https.onRequest((request, response) => {
