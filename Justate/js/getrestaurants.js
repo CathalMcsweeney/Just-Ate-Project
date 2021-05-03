@@ -41,21 +41,21 @@ function getrestaurants()
                         // starters
                         sHTML += "<div class='row' id='starters'><h6 class='text-center col-12'>Starters</h6>";
                         for(var j = 0; j < data[i].starters.length; j++){
-                            sHTML += "<button class='btn btn-primary text-white text-center font-weight-bold'>" + data[i].starters[j].item + " " + data[i].starters[j].price + " €" + "</button>";
+                            sHTML += "<button class='btn btn-primary text-white text-center font-weight-bold'>" + data[i].starters[j].item + " €" + data[i].starters[j].price + "</button>";
                         }
                         sHTML += "</div>";
 
                         // mains
                         sHTML += "<div class='row' id='mains'><h6 class='text-center col-12'>Mains</h6>";
                         for(var j = 0; j < data[i].mains.length; j++){
-                            sHTML += "<button class='btn btn-primary text-white text-center font-weight-bold'>" + data[i].mains[j].item + " " + data[i].mains[i].price + " €" + "</button>";
+                            sHTML += "<button class='btn btn-primary text-white text-center font-weight-bold'>" + data[i].mains[j].item + " €" +data[i].mains[j].price + "</button>";
                         }
                         sHTML += "</div>";
 
                         // desserts
                         sHTML += "<div class='row' id='desserts'><h6 class='text-center col-12'>Desserts</h6>";
                         for(var j = 0; j < data[i].desserts.length; j++){
-                            sHTML += "<button class='btn btn-primary text-white text-center font-weight-bold'>" + data[i].desserts[j].item + " " + data[i].desserts[j].price + " €" + "</button>";
+                            sHTML += "<button class='btn btn-primary text-white text-center font-weight-bold'>" + data[i].desserts[j].item + " €" + data[i].desserts[j].price + "</button>";
                         }
                         sHTML += "</div></div></div>";
 
