@@ -25,52 +25,99 @@ function getrestaurants()
                 if(xhr.responseText != "Restaurants collection empty")
                 {
                     var data = JSON.parse(xhr.responseText); 
-                    var sHTML = "<div class='container'>";
+                    // visible icons of the modals -> when clicked displays the inside of the modal
+                    var mHTML = "<section class='page-section bg-light' id='portfolio'>";
+                    mHTML += "<div class='container'>";
+                    mHTML += "<div class='text-center'>";
+                    mHTML += "<h2 class='section-heading text-uppercase'>Restaurants that we have teamed up with.</h2>";
+                    mHTML += "<h3 class='section-subheading text-muted'>Amazing selections from worlds best cuisines.</h3>"
+                    mHTML += "</div><div class='row'>";
                     for(var i = 0; i < data.length; i++){
-                        // every second restaurant add an extra row
-                        if(i % 2 == 0){
-                            sHTML += "<div class='row'>";
-                        }
-                        // general information
-                        sHTML += "<div class='card col-6' style='width: 32rem;'><h5 class='card-header text-center font-weight-bold text-white bg-primary'>" + data[i].name + "</h5>"
-                        sHTML += "<div class='card-body font-weight-bold'><div class='row'><div class='col-6'>Cuisine: " + data[i].cuisine + "</div><div class='col-6'>Order Limit: " + data[i].orderlim + "</div></div>";
-                        sHTML += "<div class='row'><div class='col-6'>Longitude: " + data[i].longitude + "</div><div class='col-6'>Latitude: " + data[i].latitude + "</div></div>";
-                        sHTML += "<div class='row'><div class='col-6'>Weekday Open: " + data[i].weekdayOpen + "</div><div class='col-6'>Weekday Close: " + data[i].weekdayClose + "</div></div>";
-                        sHTML += "<div class='row'><div class='col-6'>Weekend Open: " + data[i].weekendOpen + "</div><div class='col-6'>Weekend Close: " + data[i].weekendClose + "</div></div>";
-                       
+                        mHTML += "<div class='col-lg-4 col-sm-6 mb-4'>";
+                        mHTML += "<div class='portfolio-item'>";
+                        mHTML += "<a class='portfolio-link' data-toggle='modal' href='#portfolioModal"+i+"'>";
+                        mHTML += "<div class='portfolio-hover'>";
+                        mHTML += "<div class='portfolio-hover-content'><i class='fas fa-plus fa-3x'></i></div></div>";
+                        mHTML += "<img class='img-fluid' src='assets/img/restaurants/restaurant.jpg'alt='' />";
+                        mHTML += "</a><div class='portfolio-caption'>";
+                        mHTML += "<div class='portfolio-caption-heading'><p>" + data[i].name + "</p></div>";
+                        mHTML += "<div style='font-size:100%' class='portfolio-caption-heading'><p>" + data[i].cuisine + "</p></div>";
+                        mHTML += "<div class='portfolio-caption-subheading text-muted'><p>Latitude: " + data[i].latitude + "</p></div>";
+                        mHTML += "<div class='portfolio-caption-subheading text-muted'><p>Longitude: " + data[i].longitude + "</p></div>";
+                        mHTML += "<div class='portfolio-caption-subheading text-muted'><p>Order Limit: " + data[i].orderlim + "</p></div>";
+                        mHTML += "<div class='portfolio-caption-subheading text-muted'><p>Weekday Opening: " + data[i].weekdayOpen + "</p></div>";
+                        mHTML += "<div class='portfolio-caption-subheading text-muted'><p>Weekday Closing: " + data[i].weekdayClose + "</p></div>";
+                        mHTML += "<div class='portfolio-caption-subheading text-muted'><p>Weekend Opening: " + data[i].weekendOpen + "</p></div>";
+                        mHTML += "<div class='portfolio-caption-subheading text-muted'><p>Weekend Closing: " + data[i].weekendClose + "</p></div>";
+                        mHTML += "</div></div></div>";
+                    }
+                    mHTML += "</div></div></section>";
+                    displayModal.innerHTML = mHTML;
+
+                    // inside of the modals containing the menu for the restaurant
+                    var sHTML = "";
+                    for(var i = 0; i < data.length; i++){
+                        sHTML += "<div class='portfolio-modal modal fade' id='portfolioModal"+i+"' tabindex='-1' role='dialog' aria-hidden='true'>";
+                        sHTML += "<div class='modal-dialog'><div class='modal-content'>";
+                        sHTML += "<div class='close-modal' data-dismiss='modal'><img src='assets/img/close-icon.svg' alt='Close modal' /></div>";
+                        sHTML += "<div class='container'><div class='now justify-content-center'><div class='col-lg-16'><div class='modal-body'>";
+                        
                         // starters
-                        sHTML += "<div class='row' id='starters'><h6 class='text-center col-12'>Starters</h6>";
+                        sHTML += "<h2 class='text-uppercase portfolio-caption-subheading text-muted'>Starters</h2>";
+                        sHTML += "<div class='row'>";
                         for(var j = 0; j < data[i].starters.length; j++){
-                            sHTML += "<button class='btn btn-primary text-white text-center font-weight-bold'>" + data[i].starters[j].item + " €" + data[i].starters[j].price + "</button>";
+                            sHTML += "<div class='column'><div class='card'>";
+                            sHTML += "<h6>" + data[i].starters[j].item + "</h6>";
+                            sHTML += "<img src='/assets/img/about/wings.jpg'>";
+                            sHTML += "<h6>" + data[i].starters[j].price + " €</h6>";
+                            var restaurant = {"name":data[i].name};
+                            var obj = Object.assign({},restaurant,data[i].starters[j]);
+                            var dataToCart = JSON.stringify(obj);
+                            sHTML += "<p><button class='btn btn-primary btn-sm' type='button' onclick='addToList("+dataToCart+")' > Add to Cart </button> </p>";
+                            sHTML += " </div></div>";
                         }
                         sHTML += "</div>";
 
                         // mains
-                        sHTML += "<div class='row' id='mains'><h6 class='text-center col-12'>Mains</h6>";
+                        sHTML += "<h2 class='text-uppercase portfolio-caption-subheading text-muted'>Mains</h2>";
+                        sHTML += "<div class='row'>";
                         for(var j = 0; j < data[i].mains.length; j++){
-                            sHTML += "<button class='btn btn-primary text-white text-center font-weight-bold'>" + data[i].mains[j].item + " €" +data[i].mains[j].price + "</button>";
+                            sHTML += "<div class='column'><div class='card'>";
+                            sHTML += "<h6>" + data[i].mains[j].item + "</h6>";
+                            sHTML += "<img src='/assets/img/about/wings.jpg'>";
+                            sHTML += "<h6>" + data[i].mains[j].price + " €</h6>";
+                            var restaurant = {"name":data[i].name};
+                            var obj = Object.assign({},restaurant,data[i].mains[j]);
+                            var dataToCart = JSON.stringify(obj);
+                            sHTML += "<p> <button class='btn btn-primary btn-sm' type='button' onclick='addToList("+dataToCart+")' > Add to Cart </button> </p>";
+                            sHTML += " </div></div>";
                         }
                         sHTML += "</div>";
-
+                       
                         // desserts
-                        sHTML += "<div class='row' id='desserts'><h6 class='text-center col-12'>Desserts</h6>";
+                        sHTML += "<h2 class='text-uppercase portfolio-caption-subheading text-muted'>Desserts</h2>";
+                        sHTML += "<div class='row'>";
                         for(var j = 0; j < data[i].desserts.length; j++){
-                            sHTML += "<button class='btn btn-primary text-white text-center font-weight-bold'>" + data[i].desserts[j].item + " €" + data[i].desserts[j].price + "</button>";
+                            sHTML += "<div class='column'><div class='card'>";
+                            sHTML += "<h6>" + data[i].desserts[j].item + "</h6>";
+                            sHTML += "<img src='/assets/img/about/wings.jpg'>";
+                            sHTML += "<h6>" + data[i].desserts[j].price + " €</h6>";
+                            var restaurant = {"name":data[i].name};
+                            var obj = Object.assign({},restaurant,data[i].desserts[j]);
+                            var dataToCart = JSON.stringify(obj);
+                            sHTML += "<p><button class='btn btn-primary btn-sm' type='button' onclick='addToList("+dataToCart+")'>Add to Cart</button> </p>";
+                            sHTML += " </div></div>";
                         }
-                        sHTML += "</div></div></div>";
-
-                        // close off the row for with the two restaurants displayed and new row if needed
-                        if(i % 2 == 0 && i != 0){
-                            sHTML += "</div>";
-                        }
-
-                    }
-
-                     sHTML += "</div>";
+                        sHTML += "</div>";
                 
-                    restaurants.innerHTML = sHTML;
-                    
-
+                        sHTML += "</div></div>";
+                        // TODO: purchase button should transer the user to the basket and should hold on to the total cost
+                        sHTML += "<button class='btn btn-success' data-dismiss='modal' type='button'>Close Menu</button>";
+                        sHTML += "</div></div></div></div></div></div></div>";
+                    }
+                    modals.innerHTML = sHTML;
+                    // make the shopping cart apear once the restaurants are loaded
+                    document.getElementById("shoppingCart").style.display = "block"; 
                 }           
             } 
             else 
