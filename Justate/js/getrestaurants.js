@@ -38,7 +38,7 @@ function getrestaurants()
                         mHTML += "<a class='portfolio-link' data-toggle='modal' href='#portfolioModal"+i+"'>";
                         mHTML += "<div class='portfolio-hover'>";
                         mHTML += "<div class='portfolio-hover-content'><i class='fas fa-plus fa-3x'></i></div></div>";
-                        mHTML += "<img class='img-fluid' src='assets/img/restaurants/kfc.png'alt='' />";
+                        mHTML += "<img class='img-fluid' src='assets/img/restaurants/restaurant.jpg'alt='' />";
                         mHTML += "</a><div class='portfolio-caption'>";
                         mHTML += "<div class='portfolio-caption-heading'><p>" + data[i].name + "</p></div>";
                         mHTML += "<div style='font-size:100%' class='portfolio-caption-heading'><p>" + data[i].cuisine + "</p></div>";
@@ -70,7 +70,10 @@ function getrestaurants()
                             sHTML += "<h6>" + data[i].starters[j].item + "</h6>";
                             sHTML += "<img src='/assets/img/about/wings.jpg'>";
                             sHTML += "<h6>" + data[i].starters[j].price + " €</h6>";
-                            sHTML += "<p><button class='btn btn-primary btn-sm' type='button' onclick='addToList()' > Add to Cart </button> </p>";
+                            var restaurant = {"name":data[i].name};
+                            var obj = Object.assign({},restaurant,data[i].starters[j]);
+                            var dataToCart = JSON.stringify(obj);
+                            sHTML += "<p><button class='btn btn-primary btn-sm' type='button' onclick='addToList("+dataToCart+")' > Add to Cart </button> </p>";
                             sHTML += " </div></div>";
                         }
                         sHTML += "</div>";
@@ -83,7 +86,10 @@ function getrestaurants()
                             sHTML += "<h6>" + data[i].mains[j].item + "</h6>";
                             sHTML += "<img src='/assets/img/about/wings.jpg'>";
                             sHTML += "<h6>" + data[i].mains[j].price + " €</h6>";
-                            sHTML += "<p> <button class='btn btn-primary btn-sm' type='button' onclick='addToList()' > Add to Cart </button> </p>";
+                            var restaurant = {"name":data[i].name};
+                            var obj = Object.assign({},restaurant,data[i].mains[j]);
+                            var dataToCart = JSON.stringify(obj);
+                            sHTML += "<p> <button class='btn btn-primary btn-sm' type='button' onclick='addToList("+dataToCart+")' > Add to Cart </button> </p>";
                             sHTML += " </div></div>";
                         }
                         sHTML += "</div>";
@@ -96,15 +102,17 @@ function getrestaurants()
                             sHTML += "<h6>" + data[i].desserts[j].item + "</h6>";
                             sHTML += "<img src='/assets/img/about/wings.jpg'>";
                             sHTML += "<h6>" + data[i].desserts[j].price + " €</h6>";
-                            
-                            sHTML += "<p><button class='btn btn-primary btn-sm' type='button' onclick='addToList()'>Add to Cart</button> </p>";
+                            var restaurant = {"name":data[i].name};
+                            var obj = Object.assign({},restaurant,data[i].desserts[j]);
+                            var dataToCart = JSON.stringify(obj);
+                            sHTML += "<p><button class='btn btn-primary btn-sm' type='button' onclick='addToList("+dataToCart+")'>Add to Cart</button> </p>";
                             sHTML += " </div></div>";
                         }
                         sHTML += "</div>";
                 
                         sHTML += "</div></div>";
                         // TODO: purchase button should transer the user to the basket and should hold on to the total cost
-                        sHTML += "<button class='btn btn-success' data-dismiss='modal' type='button' onclick=''>Close Menu</button>";
+                        sHTML += "<button class='btn btn-success' data-dismiss='modal' type='button'>Close Menu</button>";
                         sHTML += "</div></div></div></div></div></div></div>";
                     }
                     modals.innerHTML = sHTML;
