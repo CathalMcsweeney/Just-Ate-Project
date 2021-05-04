@@ -35,7 +35,7 @@ function register()
           }
         }
       }
-      xhr.send(JSON.stringify({"email": email}));
+      
 
       firebase.auth().createUserWithEmailAndPassword(email, password).then((userCredential) => {
         // Signed in 
@@ -43,6 +43,7 @@ function register()
         document.cookie = "accessToken="+ user.za; 
         document.cookie = "uid=" + user.uid;
         console.log(user);
+        xhr.send(JSON.stringify({"email": email}));
         window.location.href = "/addmenu.html"
         // ...
       })
@@ -74,7 +75,7 @@ function register()
           }
         }
       }
-      xhr.send(JSON.stringify({"email": email}));
+      
 
       firebase.auth().createUserWithEmailAndPassword(email, password).then((userCredential) => {
         // Signed in 
@@ -82,6 +83,7 @@ function register()
         document.cookie = "accessToken="+ user.za; 
         document.cookie = "uid=" + user.uid;
         console.log(user);
+        xhr.send(JSON.stringify({"email": email}));
         window.location.href = "/secure.html"     
         // ...
       })

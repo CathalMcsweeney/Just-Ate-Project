@@ -4,30 +4,23 @@ function getComments()
     console.log("Function called");
     var xhr = new XMLHttpRequest();
     console.log(location.hostname);
-    if(location.hostname === "localhost" || location.hostname === "127.0.0.1")
-    {
+    if(location.hostname === "localhost" || location.hostname === "127.0.0.1"){
         xhr.open('GET', 'http://localhost:5001/justateapp/us-central1/getcomments');
     }
-    else
-    {
+    else {
         xhr.open('GET', 'https://us-central1-justateapp.cloudfunctions.net/getcomments');
     }
 
     // Track the state changes of the request.
-    xhr.onreadystatechange = function () 
-    {
+    xhr.onreadystatechange = function (){
         var DONE = 4; // readyState 4 means the request is done. 
         var OK = 200; // status 200 is a successful return.
-        if (xhr.readyState === DONE) 
-        {
-            if (xhr.status === OK) 
-            {
+        if (xhr.readyState === DONE){
+            if (xhr.status === OK) {
                 var sHTML = "";
-                if(xhr.responseText != "No data in database")
-                {
+                if(xhr.responseText != "No data in database"){
                     var data = JSON.parse(xhr.responseText); 
-                    for (var i = 0; i < data.length; i++) 
-                    {
+                    for (var i = 0; i < data.length; i++){
                         sHTML += "<p> Handle: " + data[i].handle + "</p>"; 
                         sHTML += "<p> Restaurant: " + data[i].restaurant + "</p>"; 
                         sHTML += "<p> Rating: " + data[i].rating + "</p>"; 
