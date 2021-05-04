@@ -46,7 +46,27 @@ exports.getcomments = functions.https.onRequest((request, response) => {
   })
 });
 
+exports.checkEmails = functions.https.onRequest((request, response) => {
+  // 1. Connect to our Firestore database
+  cors(request, response, () => {
+    let myData = []
 
+    admin.firestore().collection('restaurantEmails').get().then((snapshot) => {
+      if (snapshot.empty) {
+        console.log('No matching documents.');
+        response.send('No data in database');
+        return;
+      }
+      snapshot.forEach(doc => {
+        let docObj = {};
+        docObj.id = doc.id;
+        myData.push(Object.assign(docObj, doc.data()));
+      });
+      // 2. Send data back to client
+      response.send(myData);
+    })
+  })
+});
 
 
 exports.getrestaurants = functions.https.onRequest((request,response) => {
