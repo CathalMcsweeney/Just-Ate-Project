@@ -9,10 +9,10 @@ function getSecureAPI() {
     if (xhr.readyState === DONE) {
       if (xhr.status === OK) {
         console.log(xhr.responseText);
-        response.innerHTML = xhr.responseText;
+        //response.innerHTML = xhr.responseText;
       }
     } else {
-      response.innerHTML = "Unauthorized to view this content";
+      //response.innerHTML = "Unauthorized to view this content";
       console.log('Error: ' + xhr.status); // An error occurred during the request.        
     }
   };
