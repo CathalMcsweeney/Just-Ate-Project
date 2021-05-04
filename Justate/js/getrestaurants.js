@@ -61,7 +61,50 @@ function getrestaurants()
                         sHTML += "<div class='modal-dialog'><div class='modal-content'>";
                         sHTML += "<div class='close-modal' data-dismiss='modal'><img src='assets/img/close-icon.svg' alt='Close modal' /></div>";
                         sHTML += "<div class='container'><div class='now justify-content-center'><div class='col-lg-16'><div class='modal-body'>";
-                        sHTML += "<button class='btn btn-primary' data-dismiss='modal' type='button'><i class='fas fa-times mr-1'></i>Close Menu and Add to Main Basket</button>";
+                        
+                        // starters
+                        sHTML += "<h2 class='text-uppercase portfolio-caption-subheading text-muted'>Starters</h2>";
+                        sHTML += "<div class='row'>";
+                        for(var j = 0; j < data[i].starters.length; j++){
+                            sHTML += "<div class='column'><div class='card'>";
+                            sHTML += "<h6>" + data[i].starters[j].item + "</h6>";
+                            sHTML += "<img src='/assets/img/about/wings.jpg'>";
+                            sHTML += "<h6>" + data[i].starters[j].price + " €</h6>";
+                            sHTML += "<p><button class='btn btn-primary btn-sm' type='button' onclick='addToList()' > Add to Cart </button> </p>";
+                            sHTML += " </div></div>";
+                        }
+                        sHTML += "</div>";
+
+                        // mains
+                        sHTML += "<h2 class='text-uppercase portfolio-caption-subheading text-muted'>Mains</h2>";
+                        sHTML += "<div class='row'>";
+                        for(var j = 0; j < data[i].mains.length; j++){
+                            sHTML += "<div class='column'><div class='card'>";
+                            sHTML += "<h6>" + data[i].mains[j].item + "</h6>";
+                            sHTML += "<img src='/assets/img/about/wings.jpg'>";
+                            sHTML += "<h6>" + data[i].mains[j].price + " €</h6>";
+                            sHTML += "<p> <button class='btn btn-primary btn-sm' type='button' onclick='addToList()' > Add to Cart </button> </p>";
+                            sHTML += " </div></div>";
+                        }
+                        sHTML += "</div>";
+                       
+                        // desserts
+                        sHTML += "<h2 class='text-uppercase portfolio-caption-subheading text-muted'>Desserts</h2>";
+                        sHTML += "<div class='row'>";
+                        for(var j = 0; j < data[i].desserts.length; j++){
+                            sHTML += "<div class='column'><div class='card'>";
+                            sHTML += "<h6>" + data[i].desserts[j].item + "</h6>";
+                            sHTML += "<img src='/assets/img/about/wings.jpg'>";
+                            sHTML += "<h6>" + data[i].desserts[j].price + " €</h6>";
+                            
+                            sHTML += "<p><button class='btn btn-primary btn-sm' type='button' onclick='addToList()'>Add to Cart</button> </p>";
+                            sHTML += " </div></div>";
+                        }
+                        sHTML += "</div>";
+                
+                        sHTML += "</div></div>";
+                        // TODO: purchase button should transer the user to the basket and should hold on to the total cost
+                        sHTML += "<button class='btn btn-success' data-dismiss='modal' type='button' onclick=''>Close Menu</button>";
                         sHTML += "</div></div></div></div></div></div></div>";
                     }
                     modals.innerHTML = sHTML;
