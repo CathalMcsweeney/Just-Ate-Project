@@ -19,46 +19,6 @@
         <script src="js/postcomment.js"></script>
         <script src="js/deletecomment.js"></script>
 
-
-        <style>
-            * {
-              box-sizing: border-box;
-            }
-            
-            /* Float four columns side by side */
-            .column {
-              float: left;
-              width: 25%;
-              padding: 10px 10px;
-            }
-            
-            /* Remove extra left and right margins, due to padding */
-            .row {margin: 0 -5px;}
-            
-            /* Clear floats after the columns */
-            .row:after {
-              content: "";
-              display: table;
-              clear: both;
-            }
-            
-            /* Responsive columns */
-            @media screen and (max-width: 1000px) {
-              .column {
-                width: 100%;
-                display: block;
-                margin-bottom: 20px;
-              }
-            }
-            
-            /* Style the counter cards */
-            .card {
-              box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-              padding: 16px;
-              text-align: center;
-              background-color: #f1f1f1;
-            }
-            </style>
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -75,12 +35,12 @@
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">Services</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Restaurants</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#reviews">Reviews</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About Us</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Team</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact Us</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/payment.html">Basket</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/login.html">Login</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/register.html">Register</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/payment.html">Basket</a></li>
                     </ul>
                 </div>
             </div>
@@ -291,7 +251,7 @@
                         <div class="timeline-panel">
                             <div class="timeline-heading">
                                 <h4>October 2020</h4>
-                                <h4 class="subheading">Meeting these queers</h4>
+                                <h4 class="subheading">Getting to know eachother</h4>
                             </div>
                             <div class="timeline-body"><p class="text-muted">From Conors cough to Cathals dyslexia!</p></div>
                         </div>
@@ -330,52 +290,63 @@
                 </ul>
             </div>
         </section>
+
         <!-- Team-->
         <section class="page-section bg-light" id="team">
-            <div class="container">
+            <div class="w3-container" style="padding: 13%;">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">Our Amazing Team</h2>
                     <h3 class="section-subheading text-muted">Meet our team of 5.</h3>
                 </div>
                 <div class="row">
-                    <div class="col-lg-2.5">
-                        <div class="team-member">
-                            <img class="mx-auto rounded-circle" src="assets/img/team/Fil.JPG" alt="" />
-                            <h4>Filipp Ruskih</h4>
-                            <p class="text-muted">Lead Designer</p>
-                            <a class="btn btn-dark btn-social mx-2" href="https://www.linkedin.com/in/filipp-ruskih-78a4b8198/"><i class="fab fa-linkedin-in"></i></a>
+                    <div class="column">
+                            <div class="team-member">
+                                <div class="container">
+                                <img class="mx-auto rounded-circle" src="assets/img/team/Fil.JPG" alt="" />
+                                <h4>Filipp Ruskih</h4>
+                                <p class="text-muted">Lead Designer</p>
+                                <a class="btn btn-dark btn-social mx-2" href="https://www.linkedin.com/in/filipp-ruskih-78a4b8198/"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-lg-2.5">
+                    </div>                    
+                    <div class="column">
                         <div class="team-member">
+                            <div class="container">
                             <img class="mx-auto rounded-circle" src="assets/img/team/conor.JPG" alt="" />
                             <h4>Conor Naughton</h4>
                             <p class="text-muted">Lead Developer</p>
                             <a class="btn btn-dark btn-social mx-2" href="https://www.linkedin.com/in/conor-naughton-5857b9195/"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-lg-2.5">
+                    <div class="column">
                         <div class="team-member">
+                            <div class="container">
                             <img class="mx-auto rounded-circle" src="assets/img/team/richie.jpg" alt="" />
                             <h4>Richard Houston</h4>
                             <p class="text-muted">Lead Developer</p>
                             <a class="btn btn-dark btn-social mx-2" href="https://www.linkedin.com/in/richard-houston-69a626175/"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-lg-2.5">
+                    <div class="column">
                       <div class="team-member">
+                        <div class="container">
                           <img class="mx-auto rounded-circle" src="assets/img/team/Jakub.jpg" alt="" />
                           <h4>Jakub Kornacki</h4>
                           <p class="text-muted">Lead Designer</p>
                           <a class="btn btn-dark btn-social mx-2" href="https://www.linkedin.com/in/jakub-kornacki-82b234198/"><i class="fab fa-linkedin-in"></i></a>
+                          </div>
                       </div>
                   </div>
-                  <div class="col-lg-2.5">
+                  <div class="column">
                     <div class="team-member">
+                        <div class="container">
                         <img class="mx-auto rounded-circle" src="assets/img/team/cathal.jpg" alt="" />
                         <h4>Cathal McSweeney</h4>
                         <p class="text-muted">Lead Designer</p>
                         <a class="btn btn-dark btn-social mx-2" href="https://www.linkedin.com/in/cathal-mcsweeney-b68690166/"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
                     </div>
                 </div>
                 </div>

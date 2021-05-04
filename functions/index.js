@@ -118,7 +118,7 @@ exports.authorizedendpoint = functions.https.onRequest((request, response) => {
             myComments.push(Object.assign(docObj, doc.data())); 
           }); 
 
-        //response.send('Welcome to the secure section' + token);
+        response.send('Welcome to the secure section' + token);
         response.send(myComments);
       })
     });
