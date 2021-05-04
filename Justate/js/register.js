@@ -29,6 +29,7 @@ function register()
           if(xhr.status === 200) {
               // ready and ok
               alert("Posting your restaurant!");
+              window.location.href = "/addmenu.html"
           }
           else {
               console.log("Error " + xhr.status);
@@ -44,7 +45,7 @@ function register()
         document.cookie = "uid=" + user.uid;
         console.log(user);
         xhr.send(JSON.stringify({"email": email}));
-        window.location.href = "/addmenu.html"
+        
         // ...
       })
       .catch((error) => {
@@ -69,6 +70,7 @@ function register()
           if(xhr.status === 200) {
               // ready and ok
               alert("Redirecting you now");
+              window.location.href = "/secure.html"
           }
           else {
               console.log("Error " + xhr.status);
@@ -84,7 +86,6 @@ function register()
         document.cookie = "uid=" + user.uid;
         console.log(user);
         xhr.send(JSON.stringify({"email": email}));
-        window.location.href = "/secure.html"     
         // ...
       })
       .catch((error) => {
