@@ -1,6 +1,8 @@
 function getSecureAPI() {
   var xhr = new XMLHttpRequest();
-  xhr.open('GET', 'https://us-central1-justateapp.cloudfunctions.net/authorizedendpoint');
+  
+      xhr.open('GET', 'https://us-central1-justateapp.cloudfunctions.net/authorizedendpoint');
+  
 
   // Track the state changes of the request.    
   xhr.onreadystatechange = function () {

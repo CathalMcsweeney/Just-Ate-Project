@@ -31,7 +31,7 @@ function deleteItem(section){
 }
 
 function postRestaurant(){
-    var info = { name:"",latitude:"",longitude:"",cuisine:"",orderlim:"",weekdayOpen:"",weekdayClose:"",weekendOpen:"",weekendClose:""};
+    var info = { uid:getCookie('uid'),name:"",latitude:"",longitude:"",cuisine:"",orderlim:"",weekdayOpen:"",weekdayClose:"",weekendOpen:"",weekendClose:""};
     info.name = document.getElementById("inpName").value;
     info.latitude = document.getElementById("latitude").value;
     info.longitude = document.getElementById("longitude").value;
@@ -97,7 +97,6 @@ function getItems(section){
 }
 
 
-
 function validateForm(infoObj, starters, mains, desserts){
     // for all fields in the info object, check for missing information
     for(var key in infoObj) {
@@ -125,3 +124,18 @@ function validateForm(infoObj, starters, mains, desserts){
     // all tests passed successfully
     return true;
 }
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+  }

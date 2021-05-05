@@ -165,3 +165,35 @@ exports.customerUsers = functions.https.onRequest((request, response) => {
   });
 }); 
 });
+
+
+exports.authorizedRestaurant = functions.https.onRequest((request, response) => {
+
+  cors(request, response, () => {
+    let myData = []
+
+    admin.firestore().collection('restaurants').get().then((snapshot) => {
+      if (snapshot.empty) {
+        console.log('No matching documents.');
+        response.send('No data in database');
+        return;
+      }
+      snapshot.forEach(doc => {
+        let docObj = {};
+        docObj.id = doc.id;
+        myData.push(Object.assign(docObj, doc.data()));
+      });
+      // 2. Send data back to client
+      response.send(myData);
+    })
+  })
+});
+
+exports.deleteRestaurant = functions.https.onRequest((request, response) => {
+  cors(request, response, () => {
+    // your function body here - use the provided req and res from cors
+    admin.firestore().collection("restaurants").doc(request.query.id).delete().then(function () {
+      response.send("Document successfully deleted!");
+    })
+  });
+});
