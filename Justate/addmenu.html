@@ -72,7 +72,13 @@
     <div class="card" id="starterItems">
         <h10 class="card-header text-center font-weight-bold text-white bg-success">Starter Section</h10>
          <div class="card-body">
-        <div class="row">
+            <div class="row"></div>
+               <div class="col-2" style="margin: auto;">
+                  <button onclick="addItem('starter');" class="btn btn-warning">+</button>
+                  <button onclick="deleteItem('starter');" class="btn btn-warning">-</button>
+               </div>
+            </div>
+         <div class="row" style="margin: auto;">
             <div class="form-group col-6">
                 <input type="text"  class="form-control col-xs-3" placeholder="Item name">
              </div>
@@ -82,10 +88,6 @@
              <div class="form-group col-2">
                 <input type="text"  class="form-control col-xs-3" placeholder="Prep Time (Min)">
              </div>
-             <div class="col-2">
-               <button onclick="addItem('starter');" class="btn btn-warning">+</button>
-               <button onclick="deleteItem('starter');" class="btn btn-warning">-</button>
-            </div>
         </div>
       </div>
     </div>

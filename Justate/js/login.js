@@ -30,6 +30,7 @@ function login()
                     firebase.auth().signInWithEmailAndPassword(email, password)
                     .then((userCredential) => {            
                         // Signed in            
+                        let found =0;
                         var user = userCredential.user;            
                         // If successful redirect to a secure page            
                         
@@ -38,10 +39,13 @@ function login()
                         console.log(user);
                         for (var i = 0; i < data.length; i++){
                             if(email === restArray[i]){
-                            window.location.href = "/addmenu.html";  
+                            window.location.href = "/restaurantSecure.html";  
+                            found = 1;
                             }
                         }          
-                        window.location.href = "/secure.html";
+                        if(found == 0){
+                            window.location.href = "/secure.html";
+                        }
                         // ...        
                     })        
                     .catch((error) => {            
@@ -61,6 +65,7 @@ function login()
             }
         }
     };
+    xhr.setRequestHeader('Authorization', 'Bearer ' + getCookie('accessToken'))
     xhr.send(null);
 }
  

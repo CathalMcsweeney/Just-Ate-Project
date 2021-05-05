@@ -19,7 +19,7 @@ function getComments()
             if (xhr.status === OK) {
                 var sHTML = "";
                 if(xhr.responseText != "No data in database"){
-                    var data = JSON.parse(xhr.responseText); 
+                    var data = JSON.parse(xhr.responseText);
                     for (var i = 0; i < data.length; i++){
                         sHTML += "<p> Handle: " + data[i].handle + "</p>"; 
                         sHTML += "<p> Restaurant: " + data[i].restaurant + "</p>"; 

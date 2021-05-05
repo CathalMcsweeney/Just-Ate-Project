@@ -44,7 +44,7 @@ function register()
         document.cookie = "accessToken="+ user.za; 
         document.cookie = "uid=" + user.uid;
         console.log(user);
-        xhr.send(JSON.stringify({"email": email}));
+        xhr.send(JSON.stringify({"email": email, "uid": user.uid}));
         
         // ...
       })
