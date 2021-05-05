@@ -1,178 +1,454 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-body {
-  font-family: Arial;
-  font-size: 17px;
-  padding: 8px;
-}
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    body {
+      font-family: Arial;
+      font-size: 17px;
+      padding: 8px;
+    }
 
-* {
-  box-sizing: border-box;
-}
+    * {
+      box-sizing: border-box;
+    }
 
-.row {
-  display: -ms-flexbox; /* IE10 */
-  display: flex;
-  -ms-flex-wrap: wrap; /* IE10 */
-  flex-wrap: wrap;
-  margin: 0 -16px;
-}
+    .row {
+      display: -ms-flexbox;
+      /* IE10 */
+      display: flex;
+      -ms-flex-wrap: wrap;
+      /* IE10 */
+      flex-wrap: wrap;
+      margin: 0 -16px;
+    }
 
-.col-25 {
-  -ms-flex: 25%; /* IE10 */
-  flex: 25%;
-}
+    .col-25 {
+      -ms-flex: 25%;
+      /* IE10 */
+      flex: 25%;
+    }
 
-.col-50 {
-  -ms-flex: 50%; /* IE10 */
-  flex: 50%;
-}
+    .col-50 {
+      -ms-flex: 50%;
+      /* IE10 */
+      flex: 50%;
+    }
 
-.col-75 {
-  -ms-flex: 75%; /* IE10 */
-  flex: 75%;
-}
+    .col-75 {
+      -ms-flex: 75%;
+      /* IE10 */
+      flex: 75%;
+    }
 
-.col-25,
-.col-50,
-.col-75 {
-  padding: 0 16px;
-}
+    .col-25,
+    .col-50,
+    .col-75 {
+      padding: 0 16px;
+    }
 
-.container {
-  background-color: #f2f2f2;
-  padding: 5px 20px 15px 20px;
-  border: 1px solid lightgrey;
-  border-radius: 3px;
-}
+    .container {
+      background-color: #f2f2f2;
+      padding: 5px 20px 15px 20px;
+      border: 1px solid lightgrey;
+      border-radius: 3px;
+    }
 
-input[type=text] {
-  width: 100%;
-  margin-bottom: 20px;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-}
+    input[type=text] {
+      width: 100%;
+      margin-bottom: 20px;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
 
-label {
-  margin-bottom: 10px;
-  display: block;
-}
+    label {
+      margin-bottom: 10px;
+      display: block;
+    }
 
-.icon-container {
-  margin-bottom: 20px;
-  padding: 7px 0;
-  font-size: 24px;
-}
-body {
-        background-image: url('/assets/img/backgroundimage2.jpg');
-        }
-.btn {
-  background-color: #04AA6D;
-  color: white;
-  padding: 12px;
-  margin: 10px 0;
-  border: none;
-  width: 100%;
-  border-radius: 3px;
-  cursor: pointer;
-  font-size: 17px;
-}
+    .icon-container {
+      margin-bottom: 20px;
+      padding: 7px 0;
+      font-size: 24px;
+    }
 
-.btn:hover {
-  background-color: #45a049;
-}
+    body {
+      background-image: url('/assets/img/backgroundimage2.jpg');
+    }
 
-a {
-  color: #2196F3;
-}
+    .btn {
+      background-color: #04AA6D;
+      color: white;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      width: 100%;
+      border-radius: 3px;
+      cursor: pointer;
+      font-size: 17px;
+    }
 
-hr {
-  border: 1px solid lightgrey;
-}
+    .btn:hover {
+      background-color: #45a049;
+    }
 
-span.price {
-  float: right;
-  color: grey;
-}
+    a {
+      color: #2196F3;
+    }
 
-@media (max-width: 800px) {
-  .row {
-    flex-direction: column-reverse;
-  }
-  .col-25 {
-    margin-bottom: 20px;
-  }
-}
-</style>
+    hr {
+      border: 1px solid lightgrey;
+    }
+
+    span.price {
+      float: right;
+      color: grey;
+    }
+
+    @media (max-width: 800px) {
+      .row {
+        flex-direction: column-reverse;
+      }
+
+      .col-25 {
+        margin-bottom: 20px;
+      }
+    }
+
+    /* Style all input fields for payment checks*/
+    input {
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      margin-top: 6px;
+      margin-bottom: 16px;
+    }
+
+    /* Style the submit button */
+    input[type=submit] {
+      background-color: #04AA6D;
+      color: white;
+    }
+
+    /* Style the container for inputs */
+    .container {
+      background-color: #f1f1f1;
+      padding: 20px;
+    }
+
+    /* The message box is shown when the user clicks on the password field */
+    #message {
+      display: none;
+      background: #f1f1f1;
+      color: #000;
+      position: relative;
+      padding: 20px;
+      margin-top: 10px;
+    }
+
+    #message p {
+      padding: 10px 35px;
+      font-size: 18px;
+    }
+
+    #message1 {
+      display: none;
+      background: #f1f1f1;
+      color: #000;
+      position: relative;
+      padding: 20px;
+      margin-top: 10px;
+    }
+
+    #message1 p {
+      padding: 10px 35px;
+      font-size: 18px;
+    }
+
+    #message2 {
+      display: none;
+      background: #f1f1f1;
+      color: #000;
+      position: relative;
+      padding: 20px;
+      margin-top: 10px;
+    }
+
+    #message2 p {
+      padding: 10px 35px;
+      font-size: 18px;
+    }
+
+    #message3 {
+      display: none;
+      background: #f1f1f1;
+      color: #000;
+      position: relative;
+      padding: 20px;
+      margin-top: 10px;
+    }
+
+    #message3 p {
+      padding: 10px 35px;
+      font-size: 18px;
+    }
+
+    /* Add a green text color and a checkmark when the requirements are right */
+    .valid {
+      color: green;
+    }
+
+    .valid:before {
+      position: relative;
+      left: -35px;
+      content: "✔";
+    }
+
+    /* Add a red text color and an "x" when the requirements are wrong */
+    .invalid {
+      color: red;
+    }
+
+    .invalid:before {
+      position: relative;
+      left: -35px;
+      content: "✖";
+    }
+  </style>
+  <script>
+            function myFunction() {
+      // Get the checkbox
+      var checkBox = document.getElementById("myCheck");
+      // Get the output text
+      var text = document.getElementById("billad");
+
+      // If the checkbox is checked, display the output text
+      if (checkBox.checked == true) {
+        text.style.display = "block";
+      } else {
+        text.style.display = "none";
+      }
+    }
+  </script>
 </head>
+
 <body>
+  <h2>Payment Checkout Form</h2>
+  <div class="row">
+    <div class="col-75">
+      <div class="container">
+        <form action="/paymentconfirmed.html">
+          <div class="row">
+            <div class="col-50">
+              <h3>Shipping Address</h3>
+              <label for="fname"><i class="fa fa-user"></i> Full Name</label>
+              <input type="text" name="firstname" placeholder="Conor Naughton">
+              <label for="ShippingAddress"><i class="fa fa-address-card-o"></i> Address</label>
+              <input type="text" name="address" placeholder="542 W. 15th Street">
+              <label for="ShippingAddress"><i class="fa fa-address-card-o"></i> Address</label>
+              <input type="text" name="address" placeholder="Garryowen">
+              <label for="city"><i class="fa fa-institution"></i> City</label>
+              <input type="text" name="city" placeholder="Galway">
+              <label for="ShippingEircode">Eircode</label>
+              <input type="text" name="ShippingEircode" placeholder="H91X123">
 
-<h2>Payment Checkout Form</h2>
-<div class="row">
-  <div class="col-75">
-    <div class="container">
-      <form action="/action_page.php">
-      
-        <div class="row">
-          <div class="col-50">
-            <h3>Shipping Address</h3>
-            <label for="fname"><i class="fa fa-user"></i> Full Name</label>
-            <input type="text" id="fname" name="firstname" placeholder="Conor Naughton">
-            <label for="email"><i class="fa fa-envelope"></i> Email</label>
-            <input type="text" id="email" name="email" placeholder="Conor@example.com">
-            <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
-            <input type="text" id="adr" name="address" placeholder="542 W. 15th Street">
-            <label for="city"><i class="fa fa-institution"></i> City</label>
-            <input type="text" id="city" name="city" placeholder="Galway">
-
-            <div class="row">
-              
-              <div class="col-50">
-                <label for="zip">EIRCODE</label>
-                <input type="text" id="zip" name="zip" placeholder="10001">
+              <div id="billad" style="display:none">
+                <h3>Billing Address</h3>
+                <label for="fname"><i class="fa fa-user"></i> Full Name</label>
+                <input type="text" name="firstname" placeholder="Conor Naughton">
+                <label for="address"><i class="fa fa-address-card-o"></i>Billing Address</label>
+                <input type="text" name="billing address" placeholder="123 Lane Park">
+                <label for="address"><i class="fa fa-address-card-o"></i>Billing Address</label>
+                <input type="text" name="billing address" placeholder="Garryowen">
+                <label for="city"><i class="fa fa-institution"></i>Billing City</label>
+                <input type="text" name="billing city" placeholder="Galway">
+                <label for="eircode"><i class="fa fa-institution"></i>Billing Eircode</label>
+                <input type="text" name="billing Eircode" placeholder="H91X123">
               </div>
+              <label><input type="checkbox" id="myCheck" onclick="myFunction()" autocomplete="off">Billing address is not the same</label>
+            </div>
+
+            <div class="col-50">
+              <h3>Payment</h3>
+              <label for="fname">Accepted Cards</label>
+              <div class="icon-container">
+                <i class="fa fa-cc-visa" style="color:navy;"></i>
+                <i class="fa fa-cc-mastercard" style="color:red;"></i>
+              </div>
+              <label for="cardno">Card number</label>
+              <input type="text" id="cardno" name="cardno" minlength="16" maxlength="16" pattern="(?=.*\d)(?=.*[0-9]).{16,}"
+                title="Must contain 16 numbers" required>
+
+              <label for="month">Expiry Month</label>
+              <input type="number" id="month" name="month" min="1" max="12" minlength="1" maxlength="2"
+                pattern="(?=.*\d)(?=.*[0-9])" title="Must contain a month between 1-12" required>
+
+              <label for="year">Expiry Year</label>
+              <input type="number" id="year" name="year" min="2021" max="2031" maxlength="4" pattern="(?=.*\d)(?=.*[0-9]).{4,}"
+                title="Must contain 4 numbers - Min year 2021 - Max year 2031" required>
+                
+              <label for="cvv">CVV</label>
+              <input type="text" id="cvv" name="cvv" maxlength="3" pattern="(?=.*\d)(?=.*[0-9]).{3,}"
+                title="Must contain 3 numbers" required>
+
+              <div id="message">
+                <h3>Card number must contain the following:</h3>
+                <p id="number" class="invalid">A <b>number</b></p>
+                <p id="length" class="invalid">Required <b>16 digits</b></p>
+              </div>
+              <div id="message1">
+                <h3>Month must contain the following:</h3>
+                <p id="number1" class="invalid">A number between <b>1-12</b></p>
+                <p id="length1" class="invalid">Maximum <b>2 digits</b></p>
+              </div>
+              <div id="message2">
+                <h3>Year must contain the following:</h3>
+                <p id="number2" class="invalid">Year between <b>2021-2031</b></p>
+                <p id="length2" class="invalid">Required <b>4 digits</b></p>
+              </div>
+              <div id="message3">
+                <h3>CVV must contain the following:</h3>
+                <p id="number3" class="invalid">A <b>3</b> digit input</p>
+                <p id="length3" class="invalid">Required <b>3 digits</b></p>
+              </div>
+
+              <script>
+                var myInput = document.getElementById("cardno");
+                var month1 = document.getElementById("month");
+                var year1 = document.getElementById("year");
+                var cvv1 = document.getElementById("cvv");
+                var number = document.getElementById("number");
+                var length = document.getElementById("length");
+                var number1 = document.getElementById("number1");
+                var length1 = document.getElementById("length1");
+                var number2 = document.getElementById("number2");
+                var length2 = document.getElementById("length2");
+                var number3 = document.getElementById("number3");
+                var length3 = document.getElementById("length3");
+
+
+                // When the user clicks on the field, shows the message box
+                myInput.onfocus = function () {
+                  document.getElementById("message").style.display = "block";
+                }
+
+                // When the user clicks outside of the field, hides the message box
+                myInput.onblur = function () {
+                  document.getElementById("message").style.display = "none";
+                }
+
+                month1.onfocus = function () {
+                  document.getElementById("message1").style.display = "block";
+                }
+                month1.onblur = function () {
+                  document.getElementById("message1").style.display = "none";
+                }
+
+                year1.onfocus = function () {
+                  document.getElementById("message2").style.display = "block";
+                }
+                year1.onblur = function () {
+                  document.getElementById("message2").style.display = "none";
+                }
+
+                cvv1.onfocus = function () {
+                  document.getElementById("message3").style.display = "block";
+                }
+                cvv1.onblur = function () {
+                  document.getElementById("message3").style.display = "none";
+                }
+
+                // When the user starts to type something inside the field
+                myInput.onkeyup = function () {
+                  // Validate numbers input
+                  var cardnumbers = /[0-9]/g;
+                  if (myInput.value.match(cardnumbers)) {
+                    number.classList.remove("invalid");
+                    number.classList.add("valid");
+                  } else {
+                    number.classList.remove("valid");
+                    number.classList.add("invalid");
+                  }
+
+                  // Validate length of input
+                  if (myInput.value.length == 16) {
+                    length.classList.remove("invalid");
+                    length.classList.add("valid");
+                  } else {
+                    length.classList.remove("valid");
+                    length.classList.add("invalid");
+                  }
+                }
+
+                month1.onkeyup = function () {
+                  var expmonth = /^(1[0-2]|[1-9])$/g;
+                  if (month1.value.match(expmonth)) {
+                    number1.classList.remove("invalid");
+                    number1.classList.add("valid");
+                  } else {
+                    number1.classList.remove("valid");
+                    number1.classList.add("invalid");
+                  }
+
+                  if (month1.value.length <= 2 && month1.value.length > 0) {
+                    length1.classList.remove("invalid");
+                    length1.classList.add("valid");
+                  } else {
+                    length1.classList.remove("valid");
+                    length1.classList.add("invalid");
+                  }
+                }
+
+                year1.onkeyup = function () {
+                  var expyear = /^(202[1-9]|203[0-1])$/g;
+                  if (year1.value.match(expyear)) {
+                    number2.classList.remove("invalid");
+                    number2.classList.add("valid");
+                  } else {
+                    number2.classList.remove("valid");
+                    number2.classList.add("invalid");
+                  }
+
+                  if (year1.value.length == 4) {
+                    length2.classList.remove("invalid");
+                    length2.classList.add("valid");
+                  } else {
+                    length2.classList.remove("valid");
+                    length2.classList.add("invalid");
+                  }
+                }
+
+                cvv1.onkeyup = function () {
+                  var cardcvv = /^[0-9]/g;
+                  if (cvv1.value.match(cardcvv)) {
+                    number3.classList.remove("invalid");
+                    number3.classList.add("valid");
+                  } else {
+                    number3.classList.remove("valid");
+                    number3.classList.add("invalid");
+                  }
+
+                  if (cvv1.value.length == 3) {
+                    length3.classList.remove("invalid");
+                    length3.classList.add("valid");
+                  } else {
+                    length3.classList.remove("valid");
+                    length3.classList.add("invalid");
+                  }
+                }
+              </script>
             </div>
           </div>
-
-          <div class="col-50">
-            <h3>Payment</h3>
-            <label for="fname">Accepted Cards</label>
-            <div class="icon-container">
-              <i class="fa fa-cc-visa" style="color:navy;"></i>
-              <i class="fa fa-cc-mastercard" style="color:red;"></i>
-            </div>
-            <label for="cname">Name on Card</label>
-            <input type="text" id="cname" name="cardname" placeholder="John Doe">
-            <label for="ccnum">Credit card number</label>
-            <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
-            <label for="expmonth">Exp Month</label>
-            <input type="text" id="expmonth" name="expmonth" placeholder="August">
-            <div class="row">
-              <div class="col-50">
-                <label for="expyear">Exp Year</label>
-                <input type="text" id="expyear" name="expyear" placeholder="2021">
-              </div>
-              <div class="col-50">
-                <label for="cvv">CVV</label>
-                <input type="text" id="cvv" name="cvv" placeholder="459">
-              </div>
-            </div>
-          </div>
-         
-        </div>
-        <label>
-          <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing address
-        </label>
-        <button type="button" class="btn btn-link btn-xs text-uppercase" onclick="window.location.href='/index.html'" type="submit">HOME</button>
-        <input type="submit" value="Continue to checkout" class="btn">
-      </form>
+          <button type="button" class="btn btn-link btn-xs text-uppercase" onclick="window.location.href='/index.html'"
+            type="submit">Home</button>
+          <input type="submit" value="Continue to checkout" class="btn">
+        </form>
+      </div>
     </div>
-  </div>
   <div class="col-25">
     <div class="container">
       <h4>Cart <span class="price" id="count" style="color:black"><i class="fa fa-shopping-cart"></i> </span></h4>
