@@ -10,7 +10,7 @@ function addItem(section){
    }
     var newDiv = document.createElement("div");
      // hardcoded row with 3 cells -> item name & price & prep time
-    newDiv.innerHTML = "<div class='card-body'><div class='row'><div class='form-group col-6'><input type='text' class='form-control col-xs-3' placeholder='Item'></div><div class='form-group col-2'><input type='text' class='form-control col-xs-3' placeholder='Price'></div><div class='form-group col-2'><input type='text'class='form-control col-xs-3' placeholder='Prep Time'></div></div></div>";
+    newDiv.innerHTML = "<div class='card-body'><div class='row'><div class='form-group col-6'><input type='text' class='form-control col-xs-3' placeholder='Item name'></div><div class='form-group col-2'><input type='text' class='form-control col-xs-3' placeholder='Price €'></div><div class='form-group col-2'><input type='text'class='form-control col-xs-3' placeholder='Prep Time (Min)'></div></div></div>";
     parentDiv.appendChild(newDiv);
 }
 
