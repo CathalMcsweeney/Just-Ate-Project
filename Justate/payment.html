@@ -449,21 +449,24 @@
         </form>
       </div>
     </div>
-    <div class="col-25">
-      <div class="container">
-        /*have to make a function to add to the list*/
-        <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>4</b></span></h4>
-        <p>Boojum 1</a></p>
-        <p><a href="#">chicken & rice</a> <span class="price">$XX</span></p>
-        <p><a href="#">salad</a> <span class="price">$XX</span></p>
-
-        <p>Domino's 2</a></p>
-        <p><a href="#">Pizza</a> <span class="price">$XX</span></p>
-        <p><a href="#">Garlic Bread</a> <span class="price">$XX</span></p>
-        <hr>
-        <p>Total <span class="price" style="color:black"><b>$XXXXX</b></span></p>
-      </div>
+  <div class="col-25">
+    <div class="container">
+      <h4>Cart <span class="price" id="count" style="color:black"><i class="fa fa-shopping-cart"></i> </span></h4>
+      <div id='order'></div>
+      
+   
+      <hr>
+      <p>Total <span class="price"  style="color:black"><b id='total'>€</b></span></p>
     </div>
   </div>
+</div>
+<script>
+    var url = window.location.href;
+    var parameters = (new URL(url)).searchParams;
+    document.getElementById("order").innerHTML = parameters.get('data');
+    document.getElementById("total").innerHTML += parameters.get('total');
+    document.getElementById("count").innerHTML += parameters.get('count');
+</script>
+
 </body>
 </html>
