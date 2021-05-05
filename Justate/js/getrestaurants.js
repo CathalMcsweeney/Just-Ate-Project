@@ -73,7 +73,7 @@ function getrestaurants()
                             var restaurant = {"name":data[i].name};
                             var obj = Object.assign({},restaurant,data[i].starters[j]);
                             var dataToCart = JSON.stringify(obj);
-                            sHTML += "<p><button class='btn btn-primary btn-sm' type='button' onclick='addToList("+dataToCart+");' > Add to Cart </button> </p>";
+                            sHTML += "<p><button class='btn btn-primary btn-sm' type='button' onmouseup='buttonReleased(this);' onmousedown='buttonPressed(this);'  onclick='addToList("+dataToCart+"); toggleButtonClass(this);' > Add to Cart </button> </p>";
                             sHTML += " </div></div>";
                         }
                         sHTML += "</div>";
@@ -89,7 +89,7 @@ function getrestaurants()
                             var restaurant = {"name":data[i].name};
                             var obj = Object.assign({},restaurant,data[i].mains[j]);
                             var dataToCart = JSON.stringify(obj);
-                            sHTML += "<p> <button class='btn btn-primary btn-sm' type='button' onclick='addToList("+dataToCart+");' > Add to Cart </button> </p>";
+                            sHTML += "<p> <button class='btn btn-primary btn-sm' type='button' onmouseup='buttonReleased(this);' onmousedown='buttonPressed(this);'  onclick='addToList("+dataToCart+"); toggleButtonClass(this);' > Add to Cart </button> </p>";
                             sHTML += " </div></div>";
                         }
                         sHTML += "</div>";
@@ -105,7 +105,7 @@ function getrestaurants()
                             var restaurant = {"name":data[i].name};
                             var obj = Object.assign({},restaurant,data[i].desserts[j]);
                             var dataToCart = JSON.stringify(obj);
-                            sHTML += "<p><button class='btn btn-primary btn-sm' type='button' onclick='addToList("+dataToCart+");'>Add to Cart</button> </p>";
+                            sHTML += "<p><button class='btn btn-primary btn-sm' type='button' onmouseup='buttonReleased(this);' onmousedown='buttonPressed(this);' onclick='addToList("+dataToCart+");'>Add to Cart</button> </p>";
                             sHTML += " </div></div>";
                         }
                         sHTML += "</div>";
