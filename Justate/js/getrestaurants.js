@@ -68,7 +68,7 @@ function getrestaurants()
                         for(var j = 0; j < data[i].starters.length; j++){
                             sHTML += "<div class='column'><div class='card'>";
                             sHTML += "<h6>" + data[i].starters[j].item + "</h6>";
-                            sHTML += "<img src='/assets/img/about/wings.jpg'>";
+                            sHTML += "<img src='/assets/img/about/starter.jpg'>";
                             sHTML += "<h6>" + data[i].starters[j].price + " €</h6>";
                             var restaurant = {"name":data[i].name};
                             var obj = Object.assign({},restaurant,data[i].starters[j]);
@@ -84,7 +84,7 @@ function getrestaurants()
                         for(var j = 0; j < data[i].mains.length; j++){
                             sHTML += "<div class='column'><div class='card'>";
                             sHTML += "<h6>" + data[i].mains[j].item + "</h6>";
-                            sHTML += "<img src='/assets/img/about/wings.jpg'>";
+                            sHTML += "<img src='/assets/img/about/mainmenu.png'>";
                             sHTML += "<h6>" + data[i].mains[j].price + " €</h6>";
                             var restaurant = {"name":data[i].name};
                             var obj = Object.assign({},restaurant,data[i].mains[j]);
@@ -100,7 +100,7 @@ function getrestaurants()
                         for(var j = 0; j < data[i].desserts.length; j++){
                             sHTML += "<div class='column'><div class='card'>";
                             sHTML += "<h6>" + data[i].desserts[j].item + "</h6>";
-                            sHTML += "<img src='/assets/img/about/wings.jpg'>";
+                            sHTML += "<img src='/assets/img/about/dessert1.jpg'>";
                             sHTML += "<h6>" + data[i].desserts[j].price + " €</h6>";
                             var restaurant = {"name":data[i].name};
                             var obj = Object.assign({},restaurant,data[i].desserts[j]);

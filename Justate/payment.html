@@ -220,7 +220,7 @@
     }
   </style>
   <script>
-            function myFunction() {
+    function myFunction() {
       // Get the checkbox
       var checkBox = document.getElementById("myCheck");
       // Get the output text
@@ -269,7 +269,8 @@
                 <label for="eircode"><i class="fa fa-institution"></i>Billing Eircode</label>
                 <input type="text" name="billing Eircode" placeholder="H91X123">
               </div>
-              <label><input type="checkbox" id="myCheck" onclick="myFunction()" autocomplete="off">Billing address is not the same</label>
+              <label><input type="checkbox" id="myCheck" onclick="myFunction()" autocomplete="off">Billing address is
+                not the same</label>
             </div>
 
             <div class="col-50">
@@ -279,40 +280,48 @@
                 <i class="fa fa-cc-visa" style="color:navy;"></i>
                 <i class="fa fa-cc-mastercard" style="color:red;"></i>
               </div>
+
+              <label for="cardname">Card name</label>
+              <input type="text" id="cardname" name="cardname" title="Must contain card name" required>
+
               <label for="cardno">Card number</label>
-              <input type="text" id="cardno" name="cardno" minlength="16" maxlength="16" pattern="(?=.*\d)(?=.*[0-9]).{16,}"
-                title="Must contain 16 numbers" required>
+              <input type="text" id="cardno" name="cardno" minlength="16" maxlength="16"
+                pattern="(?=.*\d)(?=.*[0-9]).{16,}" title="Must contain 16 numbers" required>
 
               <label for="month">Expiry Month</label>
-              <input type="number" id="month" name="month" min="1" max="12" minlength="1" maxlength="2"
-                pattern="(?=.*\d)(?=.*[0-9])" title="Must contain a month between 1-12" required>
+              <input type="number" id="month" name="month" min="1" max="12" minlength="1" pattern="(?=.*\d)(?=.*[0-9])"
+                title="Must contain a month between 1-12" required>
 
               <label for="year">Expiry Year</label>
-              <input type="number" id="year" name="year" min="2021" max="2031" maxlength="4" pattern="(?=.*\d)(?=.*[0-9]).{4,}"
+              <input type="number" id="year" name="year" min="2021" max="2031" pattern="(?=.*\d)(?=.*[0-9]).{4,}"
                 title="Must contain 4 numbers - Min year 2021 - Max year 2031" required>
-                
+
               <label for="cvv">CVV</label>
-              <input type="text" id="cvv" name="cvv" maxlength="3" pattern="(?=.*\d)(?=.*[0-9]).{3,}"
+              <input type="number" id="cvv" name="cvv" min="0" max="999" pattern="(?=.*\d)(?=.*[0-9]).{3,}"
                 title="Must contain 3 numbers" required>
+
 
               <div id="message">
                 <h3>Card number must contain the following:</h3>
-                <p id="number" class="invalid">A <b>number</b></p>
+                <p id="number" class="invalid">A <b></b>number</b> input only</p>
                 <p id="length" class="invalid">Required <b>16 digits</b></p>
               </div>
+
               <div id="message1">
                 <h3>Month must contain the following:</h3>
                 <p id="number1" class="invalid">A number between <b>1-12</b></p>
                 <p id="length1" class="invalid">Maximum <b>2 digits</b></p>
               </div>
+
               <div id="message2">
                 <h3>Year must contain the following:</h3>
                 <p id="number2" class="invalid">Year between <b>2021-2031</b></p>
                 <p id="length2" class="invalid">Required <b>4 digits</b></p>
               </div>
+
               <div id="message3">
                 <h3>CVV must contain the following:</h3>
-                <p id="number3" class="invalid">A <b>3</b> digit input</p>
+                <p id="number3" class="invalid">A <b>3</b> digit input from 001-999</p>
                 <p id="length3" class="invalid">Required <b>3 digits</b></p>
               </div>
 
@@ -329,7 +338,6 @@
                 var length2 = document.getElementById("length2");
                 var number3 = document.getElementById("number3");
                 var length3 = document.getElementById("length3");
-
 
                 // When the user clicks on the field, shows the message box
                 myInput.onfocus = function () {
@@ -423,7 +431,8 @@
                 }
 
                 cvv1.onkeyup = function () {
-                  var cardcvv = /^[0-9]/g;
+                  //var cardcvv = /^[0-9]/g;
+                  var cardcvv = /^([0-9]|[1-9][0-9]|[1-9][0-9][0-9])/g;
                   if (cvv1.value.match(cardcvv)) {
                     number3.classList.remove("invalid");
                     number3.classList.add("valid");
@@ -449,24 +458,23 @@
         </form>
       </div>
     </div>
-  <div class="col-25">
-    <div class="container">
-      <h4>Cart <span class="price" id="count" style="color:black"><i class="fa fa-shopping-cart"></i> </span></h4>
-      <div id='order'></div>
-      
-   
-      <hr>
-      <p>Total <span class="price"  style="color:black"><b id='total'>€</b></span></p>
+    <div class="col-25">
+      <div class="container">
+        <h4>Cart <span class="price" id="count" style="color:black"><i class="fa fa-shopping-cart"></i> </span></h4>
+        <div id='order'></div>
+
+
+        <hr>
+        <p>Total €<span class="price" style="color:black"><b id='total'></b></span></p>
+      </div>
     </div>
   </div>
-</div>
-<script>
+  <script>
     var url = window.location.href;
     var parameters = (new URL(url)).searchParams;
     document.getElementById("order").innerHTML = parameters.get('data');
     document.getElementById("total").innerHTML += parameters.get('total');
     document.getElementById("count").innerHTML += parameters.get('count');
-</script>
-
+  </script>
 </body>
 </html>
