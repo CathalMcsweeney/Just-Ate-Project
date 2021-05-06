@@ -25,7 +25,7 @@ function getComments()
                         sHTML += "<p> Restaurant: " + data[i].restaurant + "</p>"; 
                         sHTML += "<p> Rating: " + data[i].rating + "</p>"; 
                         sHTML += "<p> Comment: " + data[i].comment + "</p>"; 
-                        sHTML += "<button class='btn btn-primary btn-xs text-uppercase' onclick = deleteComment(" + "'"+ data[i].id + "'" + ")> Delete Comment </button>";
+                        sHTML += "<button class='btn btn-primary btn-xs text-uppercase' style='width: 30%;' onclick = deleteComment(" + "'"+ data[i].id + "'" + ")> Delete Comment </button>";
                         comments.innerHTML = sHTML;
                     }
                 }           
