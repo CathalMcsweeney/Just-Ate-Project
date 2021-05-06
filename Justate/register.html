@@ -26,13 +26,20 @@
 
     <style>
         img {
-          display: block;
-          margin-left: auto;
-          margin-right: auto;
-          border-radius: 50%;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 50%;
         }
+
         body {
-         background-image: url('/assets/img/orange.jpg');
+            background-image: url('/assets/img/food.jpg');
+            background-repeat: no-repeat;
+            background-size: 100%;
+        }
+
+        span{
+            color: white;
         }
     </style>
 </head>
@@ -58,46 +65,47 @@
 
     </nav>
 
-    <div >
+    <div>
 
         <div class="imgcontainer">
             <img src="/assets/img/blueperson.jpg" alt="Avatar" width="400" height="400">
         </div>
-    
-    <div class="container" style="width:500px;">
-        <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                placeholder="Enter email">
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-        </div>
-        <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-        </div>
-        <div class="form-check" style="padding-left:120px; width:500px;" >
-            <input type="radio" name="isRestaurant" id="cust" value="customer">
-            <label for="inlineRadio1">CUSTOMER</label>
-            <input type="radio" name="isRestaurant" id="rest" value="restaurant">
-            <label for="inlineRadio1">RESTAURANT</label>
-        </div>
-        <script>
-            function goBack() {
-                window.history.back();
-            }
-        </script>        
-        <button onclick="register()" class="btn btn-primary">Create Account</button>
-    </div>
 
-    <script src="/__/firebase/8.3.0/firebase-app.js"></script>
-    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
-    <script src="/__/firebase/8.3.0/firebase-analytics.js"></script>
-    <!-- Add Firebase products that you want to use -->
-    <script src="/__/firebase/8.3.0/firebase-auth.js"></script>
-    <script src="/__/firebase/8.3.0/firebase-firestore.js"></script>
-    <!-- Initialize Firebase -->
-    <script src="/__/firebase/init.js"></script>
-    <script src="js/register.js"></script>
+        <div class="container" style="width:500px;">
+            <div class="form-group">
+                <label for="exampleInputEmail1"> <span>Email address</span></label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                    placeholder="Enter email">
+                <small id="emailHelp" class="form-text text-muted"><span>We'll never share your email with anyone
+                    else.</span></small>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1"><span>Password</span></label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            </div>
+            <div class="form-check" style="padding-left:120px; width:500px;">
+                <input type="radio" name="isRestaurant" id="cust" value="customer">
+                <label for="inlineRadio1"><span>CUSTOMER</span></label>
+                <input type="radio" name="isRestaurant" id="rest" value="restaurant">
+                <label for="inlineRadio1"><span>RESTAURANT</span></label>
+            </div>
+            <script>
+                function goBack() {
+                    window.history.back();
+                }
+            </script>
+            <button onclick="register()" class="btn btn-primary">Create Account</button>
+        </div>
+
+        <script src="/__/firebase/8.3.0/firebase-app.js"></script>
+        <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+        <script src="/__/firebase/8.3.0/firebase-analytics.js"></script>
+        <!-- Add Firebase products that you want to use -->
+        <script src="/__/firebase/8.3.0/firebase-auth.js"></script>
+        <script src="/__/firebase/8.3.0/firebase-firestore.js"></script>
+        <!-- Initialize Firebase -->
+        <script src="/__/firebase/init.js"></script>
+        <script src="js/register.js"></script>
 </body>
 
 </html>
