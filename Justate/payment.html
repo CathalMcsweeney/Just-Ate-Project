@@ -76,7 +76,9 @@
     }
 
     body {
-      background-image: url('/assets/img/backgroundimage2.jpg');
+      background-image: url('/assets/img/food.jpg');
+      background-repeat: no-repeat;
+      background-size: 100%;
     }
 
     .btn {
@@ -452,8 +454,11 @@
               </script>
             </div>
           </div>
-          <button type="button" class="btn btn-link btn-xs text-uppercase" onclick="window.location.href='/index.html'" type="submit">Home</button>
-          <button type="button" class="btn btn-link btn-xs text-uppercase" onclick="window.location.href='/paymentconfirmed.html?UIDarray='+UIDarray" type="submit">Confirm purchase</button>
+          <button type="button" class="btn btn-link btn-xs text-uppercase" onclick="window.location.href='/index.html'"
+            type="submit">Home</button>
+          <button type="button" class="btn btn-link btn-xs text-uppercase"
+            onclick="window.location.href='/paymentconfirmed.html?UIDarray='+UIDarray" type="submit">Confirm
+            purchase</button>
         </form>
       </div>
     </div>
@@ -475,7 +480,8 @@
     document.getElementById("total").innerHTML += parameters.get('total');
     document.getElementById("count").innerHTML += parameters.get('count');
     var UIDarray = parameters.get('UIDarray');
-</script>
+  </script>
 
 </body>
+
 </html>

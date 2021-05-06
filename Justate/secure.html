@@ -22,42 +22,42 @@
     <script src="js/postcomment.js"></script>
     <script src="js/deletecomment.js"></script>
 
-<script>
-    var UIDarray = [];
+    <script>
+        var UIDarray = [];
 
-    function checkNumRest(itemObj, restUID){
-        
+        function checkNumRest(itemObj, restUID) {
 
-        if(UIDarray.length <2 || restUID==UIDarray[0] || restUID==UIDarray[1] ){
-            if(restUID!=UIDarray[0]){
-                UIDarray.push(restUID);
+
+            if (UIDarray.length < 2 || restUID == UIDarray[0] || restUID == UIDarray[1]) {
+                if (restUID != UIDarray[0]) {
+                    UIDarray.push(restUID);
+                }
+                addToList(itemObj);
             }
-            addToList(itemObj);
+            else {
+                alert("Only Order From Max 2 Restaurants");
+            }
         }
-        else{
-            alert("Only Order From Max 2 Restaurants");
+
+        function addToList(itemObj) {
+            var parentDiv = document.getElementById("cart");
+            var newDiv = document.createElement("div");
+
+            var newItem = "<div class='row text-white fs-5'>";
+            newItem += "<p class='col-2'><span>" + itemObj.name + "</span></p>";
+            newItem += "<p class='col-2'><span>" + itemObj.item + "</span></p>";
+            newItem += "<p class='col-2'><span>" + itemObj.price + "</span>€</p>";
+            newItem += "<p class='col-2'> Preparation Time: " + itemObj.preptime + "</p>";
+            newItem += "<p class='col-4'><button class='btn btn-primary btn-sm' type='button' onclick='this.parentNode.parentNode.parentNode.remove();'>Remove</button></p></div>";
+
+            newDiv.innerHTML = newItem;
+            parentDiv.appendChild(newDiv);
+
+            alert("Added To Cart");
         }
-    }
-    
-    function addToList(itemObj){ 
-        var parentDiv = document.getElementById("cart");
-        var newDiv = document.createElement("div");
-        
-        var newItem = "<div class='row text-white fs-5'>";
-        newItem += "<p class='col-2'><span>"+itemObj.name+"</span></p>";
-        newItem += "<p class='col-2'><span>" + itemObj.item + "</span></p>";
-        newItem += "<p class='col-2'><span>" + itemObj.price + "</span>€</p>";
-        newItem += "<p class='col-2'> Preparation Time: " + itemObj.preptime + "</p>";
-        newItem += "<p class='col-4'><button class='btn btn-primary btn-sm' type='button' onclick='this.parentNode.parentNode.parentNode.remove();'>Remove</button></p></div>";
-        
-        newDiv.innerHTML = newItem;
-        parentDiv.appendChild(newDiv);
+    </script>
 
-        alert("Added To Cart");
-    }
-</script>
 
- 
     <style>
         * {
             box-sizing: border-box;
@@ -120,7 +120,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
         <div class="container">
             <a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="assets/img/logo-transparent.png"
-                    width="150" height="90" alt="" /></a>
+                    alt="" /></a>
 
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
                 data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
@@ -133,7 +133,8 @@
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Restaurants</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#reviews">Reviews</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" onclick='sendItemsToBasket(UIDarray);'>Basket</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger"
+                            onclick='sendItemsToBasket(UIDarray);'>Basket</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" onclick="logout()">Logout</a></li>
                 </ul>
             </div>
@@ -150,20 +151,23 @@
 
     <div id="restaurants"></div>
 
-     <!-- Restaurants-->
-     <div id="displayModal"></div>
-     <!-- Shopping cart-->
-     <section class="page-section bg-light">
-     <div class="container" id='shoppingCart' style='display: none;'>
-         <div class="card bg-warning mb-3">
-             <div class="card-hearder text-center "><h2 class="section-heading text-uppercase text-white">Your Cart!</h2></div>
-                 <div id="cart">
-                     
- 
-             </div>
-             <button class='btn btn-primary btn-lg bg-success' type='button' onclick='sendItemsToBasket(UIDarray);'>Go to Payment!</button>
-         </div>
-     </div>
+    <!-- Restaurants-->
+    <div id="displayModal"></div>
+    <!-- Shopping cart-->
+    <section class="page-section bg-light">
+        <div class="container" id='shoppingCart' style='display: none;'>
+            <div class="card bg-warning mb-3">
+                <div class="card-hearder text-center ">
+                    <h2 class="section-heading text-uppercase text-white">Your Cart!</h2>
+                </div>
+                <div id="cart">
+
+
+                </div>
+                <button class='btn btn-primary btn-lg bg-success' type='button'
+                    onclick='sendItemsToBasket(UIDarray);'>Go to Payment!</button>
+            </div>
+        </div>
     </section>
 
     <!-- Reviews-->
@@ -184,7 +188,7 @@
                         </div>
                         <div class="col">
                             <input type="text" class="form-control" placeholder="@restaurant" id="restaurant">
-    
+
                         </div>
                         <div class="col">
                             <input type="text" class="form-control" placeholder="@comment" id="comment">
@@ -200,120 +204,66 @@
                 <div id="comments"></div>
             </div>
         </div>
-        <!-- Restaurants-->
-        <div id="displayModal"></div>
-        <!-- Shopping cart-->
-        <section class="page-section bg-light">
-            <div class="container" id='shoppingCart' style='display: none;'>
-                <div class="card bg-warning mb-3">
-                    <div class="card-hearder text-center ">
-                        <h2 class="section-heading text-uppercase text-white">Your Cart!</h2>
-                    </div>
-                    <div id="cart">
+    </section>
 
-
-                    </div>
-                    <button class='btn btn-primary btn-lg bg-success' type='button'
-                        onclick='sendItemsToBasket(UIDarray);'>Go to Payment!</button>
-                </div>
+    <!-- Contact-->
+    <section class="page-section" id="contact">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">Contact Us</h2>
+                <h3 class="section-subheading text-muted">Send us any queries you might have and we WILL NOT
+                    respond.
+                </h3>
             </div>
-        </section>
-
-        <!-- Reviews-->
-        <section class="page-section bg-light" id="reviews">
-            <div class="container">
+            <form id="contactForm" name="sentMessage" novalidate="novalidate">
+                <div class="row align-items-stretch mb-5">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input class="form-control" id="name" type="text" placeholder="Your Name *"
+                                required="required" data-validation-required-message="Please enter your name." />
+                            <p class="help-block text-danger"></p>
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" id="email" type="email" placeholder="Your Email *"
+                                required="required"
+                                data-validation-required-message="Please enter your email address." />
+                            <p class="help-block text-danger"></p>
+                        </div>
+                        <div class="form-group mb-md-0">
+                            <input class="form-control" id="phone" type="tel" placeholder="Your Phone *"
+                                required="required"
+                                data-validation-required-message="Please enter your phone number." />
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group form-group-textarea mb-md-0">
+                            <textarea class="form-control" id="message" placeholder="Your Message *" required="required"
+                                data-validation-required-message="Please enter a message."></textarea>
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                </div>
                 <div class="text-center">
-                    <h2 class="section-heading text-uppercase">Reviews of our Restaurants</h2>
-                    <h3 class="section-subheading text-muted">Reviews from our beloved customers</h3>
+                    <div id="success"></div>
+                    <button class="btn btn-primary btn-xl text-uppercase" id="sendMessageButton" type="submit">Send
+                        Message</button>
                 </div>
-                <div class="text-center mt-4">
-                    <form>
-                        <div class="row">
-                            <div class="col">
-                                <input type="text" class="form-control" placeholder="@handle" id="handle">
-                            </div>
-                            <div class="col">
-                                <input type="text" class="form-control" placeholder="@rating" id="rating">
-                            </div>
-                            <div class="col">
-                                <input type="text" class="form-control" placeholder="@restaurant" id="restaurant">
+            </form>
+        </div>
+    </section>
+    <!-- Footer-->
+    <footer class="footer py-4">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 text-lg-left">Copyright © Your Website 2020</div>
 
-                            </div>
-                            <div class="col">
-                                <input type="text" class="form-control" placeholder="@comment" id="comment">
-                            </div>
-                            <div>
-                                <button type="button" class="btn btn-primary btn-xs text-uppercase"
-                                    onclick="postComment()" type="submit">Post</button>
-                                <button type="button" class="btn btn-primary btn-xs text-uppercase"
-                                    onclick="getComments()" type="submit">Get Comments</button>
-                            </div>
-                        </div>
-                    </form>
-                    <div id="comments"></div>
+                <div class="col-lg-6 text-lg-right">
+                    <a class="mr-3" href="#!">Privacy Policy</a>
+                    <a href="#!">Terms of Use</a>
                 </div>
             </div>
-        </section>
-
-        <!-- Contact-->
-        <section class="page-section" id="contact">
-            <div class="container">
-                <div class="text-center">
-                    <h2 class="section-heading text-uppercase">Contact Us</h2>
-                    <h3 class="section-subheading text-muted">Send us any queries you might have and we WILL NOT
-                        respond.
-                    </h3>
-                </div>
-                <form id="contactForm" name="sentMessage" novalidate="novalidate">
-                    <div class="row align-items-stretch mb-5">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <input class="form-control" id="name" type="text" placeholder="Your Name *"
-                                    required="required" data-validation-required-message="Please enter your name." />
-                                <p class="help-block text-danger"></p>
-                            </div>
-                            <div class="form-group">
-                                <input class="form-control" id="email" type="email" placeholder="Your Email *"
-                                    required="required"
-                                    data-validation-required-message="Please enter your email address." />
-                                <p class="help-block text-danger"></p>
-                            </div>
-                            <div class="form-group mb-md-0">
-                                <input class="form-control" id="phone" type="tel" placeholder="Your Phone *"
-                                    required="required"
-                                    data-validation-required-message="Please enter your phone number." />
-                                <p class="help-block text-danger"></p>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group form-group-textarea mb-md-0">
-                                <textarea class="form-control" id="message" placeholder="Your Message *"
-                                    required="required"
-                                    data-validation-required-message="Please enter a message."></textarea>
-                                <p class="help-block text-danger"></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="text-center">
-                        <div id="success"></div>
-                        <button class="btn btn-primary btn-xl text-uppercase" id="sendMessageButton" type="submit">Send
-                            Message</button>
-                    </div>
-                </form>
-            </div>
-        </section>
-        <!-- Footer-->
-        <footer class="footer py-4">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-6 text-lg-left">Copyright © Your Website 2020</div>
-
-                    <div class="col-lg-6 text-lg-right">
-                        <a class="mr-3" href="#!">Privacy Policy</a>
-                        <a href="#!">Terms of Use</a>
-                    </div>
-                </div>
-            </div>
+        </div>
         </div>
     </footer>
     <!-- Restaurant Modals-->
