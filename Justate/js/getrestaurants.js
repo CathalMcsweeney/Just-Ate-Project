@@ -67,7 +67,12 @@ function getrestaurants()
                             var obj = Object.assign({},restaurant,data[i].starters[j]);
                             var dataToCart = JSON.stringify(obj);
 <<<<<<< HEAD
+<<<<<<< HEAD
                             sHTML += "<p><button class='btn btn-primary btn-sm' type='button' onmouseup='buttonReleased(this);' onmousedown='buttonPressed(this);'  onclick='addToList("+dataToCart+"); toggleButtonClass(this);' > Add to Cart </button> </p>";
+=======
+                            var restUID = JSON.stringify(data[i].uid);
+                            sHTML += "<p><button class='btn btn-primary btn-sm' type='button' onclick='checkNumRest("+dataToCart+","+restUID+");' > Add to Cart </button> </p>";
+>>>>>>> 14237888875262f6362d53bd10bd1a2a303ccb60
 =======
                             var restUID = JSON.stringify(data[i].uid);
                             sHTML += "<p><button class='btn btn-primary btn-sm' type='button' onclick='checkNumRest("+dataToCart+","+restUID+");' > Add to Cart </button> </p>";
@@ -89,7 +94,12 @@ function getrestaurants()
                             var obj = Object.assign({},restaurant,data[i].mains[j]);
                             var dataToCart = JSON.stringify(obj);
 <<<<<<< HEAD
+<<<<<<< HEAD
                             sHTML += "<p> <button class='btn btn-primary btn-sm' type='button' onmouseup='buttonReleased(this);' onmousedown='buttonPressed(this);'  onclick='addToList("+dataToCart+"); toggleButtonClass(this);' > Add to Cart </button> </p>";
+=======
+                            var restUID = JSON.stringify(data[i].uid);
+                            sHTML += "<p> <button class='btn btn-primary btn-sm' type='button' onclick='checkNumRest("+dataToCart+","+ restUID+");' > Add to Cart </button> </p>";
+>>>>>>> 14237888875262f6362d53bd10bd1a2a303ccb60
 =======
                             var restUID = JSON.stringify(data[i].uid);
                             sHTML += "<p> <button class='btn btn-primary btn-sm' type='button' onclick='checkNumRest("+dataToCart+","+ restUID+");' > Add to Cart </button> </p>";
@@ -110,7 +120,12 @@ function getrestaurants()
                             var obj = Object.assign({},restaurant,data[i].desserts[j]);
                             var dataToCart = JSON.stringify(obj);
 <<<<<<< HEAD
+<<<<<<< HEAD
                             sHTML += "<p><button class='btn btn-primary btn-sm' type='button' onmouseup='buttonReleased(this);' onmousedown='buttonPressed(this);' onclick='addToList("+dataToCart+");'>Add to Cart</button> </p>";
+=======
+                            var restUID = JSON.stringify(data[i].uid);
+                            sHTML += "<p><button class='btn btn-primary btn-sm' type='button' onclick='checkNumRest("+dataToCart+","+restUID+");'>Add to Cart</button> </p>";
+>>>>>>> 14237888875262f6362d53bd10bd1a2a303ccb60
 =======
                             var restUID = JSON.stringify(data[i].uid);
                             sHTML += "<p><button class='btn btn-primary btn-sm' type='button' onclick='checkNumRest("+dataToCart+","+restUID+");'>Add to Cart</button> </p>";
