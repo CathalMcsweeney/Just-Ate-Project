@@ -48,11 +48,23 @@ function orderTracker(UIDarray){
     xhr.send(null);
 }
 
-function distance(x1, y1, x2, y2)
-{
+function distance(x1, y1, x2, y2){
     // Calculating distance
-    var ans= Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2) * 0.25);
+    var ans= Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2) )* 0.01;
+    ans = ans * 4;
+    
+    var d = new Date();
+    var h = d.getHours();
+    var m = d.getMinutes();
+    m = Math.floor(m + ans);
+
+
+    if(m >=60 ){
+        h++;
+        m = m - 60;
+    }
+
 
 // Drivers Code
-alert(ans+"minutes");
+alert("Order will be delivered at "+h+":"+m);
 }
