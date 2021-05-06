@@ -246,7 +246,7 @@
             <div class="col-50">
               <h3>Shipping Address</h3>
               <label for="fname"><i class="fa fa-user"></i> Full Name</label>
-              <input type="text" name="firstname" placeholder="Conor Naughton">
+              <input type="text" name="firstname" placeholder="Name of addressee">
               <label for="ShippingAddress"><i class="fa fa-address-card-o"></i> Address</label>
               <input type="text" name="address" placeholder="542 W. 15th Street">
               <label for="ShippingAddress"><i class="fa fa-address-card-o"></i> Address</label>
@@ -443,8 +443,7 @@
               </script>
             </div>
           </div>
-          <button type="button" class="btn btn-link btn-xs text-uppercase" onclick="window.location.href='/index.html'"
-            type="submit">Home</button>
+          <button type="button" class="btn btn-link btn-xs text-uppercase" onclick="window.location.href='/paymentconfirmed.html?UIDarray='+UIDarray" type="submit">Home</button>
           <input type="submit" value="Continue to checkout" class="btn">
         </form>
       </div>
@@ -466,6 +465,7 @@
     document.getElementById("order").innerHTML = parameters.get('data');
     document.getElementById("total").innerHTML += parameters.get('total');
     document.getElementById("count").innerHTML += parameters.get('count');
+    var UIDarray = parameters.get('UIDarray');
 </script>
 
 </body>
