@@ -21,7 +21,84 @@
     <script src="js/getcomments.js"></script>
     <script src="js/postcomment.js"></script>
     <script src="js/deletecomment.js"></script>
-    <script src="js/toggleButtonClass.js"></script>
+
+<script>
+    var UIDarray = [];
+
+    function checkNumRest(itemObj, restUID){
+        
+
+        if(UIDarray.length <2 || restUID==UIDarray[0] || restUID==UIDarray[1] ){
+            if(restUID!=UIDarray[0]){
+                UIDarray.push(restUID);
+            }
+            addToList(itemObj);
+        }
+        else{
+            alert("Only Order From Max 2 Restaurants");
+        }
+    }
+    
+    function addToList(itemObj){ 
+        var parentDiv = document.getElementById("cart");
+        var newDiv = document.createElement("div");
+        
+        var newItem = "<div class='row text-white fs-5'>";
+        newItem += "<p class='col-2'><span>"+itemObj.name+"</span></p>";
+        newItem += "<p class='col-2'><span>" + itemObj.item + "</span></p>";
+        newItem += "<p class='col-2'><span>" + itemObj.price + "</span>€</p>";
+        newItem += "<p class='col-2'> Preparation Time: " + itemObj.preptime + "</p>";
+        newItem += "<p class='col-4'><button class='btn btn-primary btn-sm' type='button' onclick='this.parentNode.parentNode.parentNode.remove();'>Remove</button></p></div>";
+        
+        newDiv.innerHTML = newItem;
+        parentDiv.appendChild(newDiv);
+
+        alert("Added To Cart");
+    }
+</script>
+
+ 
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        /* Float four columns side by side */
+        .column {
+            float: left;
+            width: 25%;
+            padding: 10px 10px;
+        }
+
+        /* Remove extra left and right margins, due to padding */
+        .row {
+            margin: 0 -5px;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Responsive columns */
+        @media screen and (max-width: 1000px) {
+            .column {
+                width: 100%;
+                display: block;
+                margin-bottom: 20px;
+            }
+        }
+
+        /* Style the counter cards */
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            padding: 16px;
+            text-align: center;
+            background-color: #f1f1f1;
+        }
+    </style>
 </head>
 
 <body id="page-top">
@@ -56,7 +133,7 @@
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Restaurants</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#reviews">Reviews</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="javascript:sendItemsToBasket();">Basket</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" onclick='sendItemsToBasket(UIDarray);'>Basket</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" onclick="logout()">Logout</a></li>
                 </ul>
             </div>
@@ -84,7 +161,7 @@
                      
  
              </div>
-             <button class='btn btn-primary btn-lg bg-success' type='button' onclick='sendItemsToBasket();'>Go to Payment!</button>
+             <button class='btn btn-primary btn-lg bg-success' type='button' onclick='sendItemsToBasket(UIDarray);'>Go to Payment!</button>
          </div>
      </div>
     </section>
@@ -107,6 +184,7 @@
                         </div>
                         <div class="col">
                             <input type="text" class="form-control" placeholder="@restaurant" id="restaurant">
+    
                         </div>
                         <div class="col">
                             <input type="text" class="form-control" placeholder="@comment" id="comment">
@@ -195,7 +273,7 @@
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
     <script src="js/getrestaurants.js"></script>
-    <script src="js/addToList.js"></script>
+    <!--<script src="js/addToList.js"></script>-->
     <script>
         getSecureAPI();
         getrestaurants();
