@@ -1,4 +1,4 @@
-function sendItemsToBasket() {
+function sendItemsToBasket(UIDarray) {
     var data = document.getElementById("cart").getElementsByTagName('span');  
     if(data.length == 0){
         return;
@@ -13,5 +13,5 @@ function sendItemsToBasket() {
         total += parseFloat(data[i+2].innerHTML);
         count++;
     }
-     window.location.href="/payment.html?data="+output+"&total="+total+"&count="+count;
+     window.location.href="/payment.html?data="+output+"&total="+total+"&count="+count+"&UIDarray="+UIDarray;
 }

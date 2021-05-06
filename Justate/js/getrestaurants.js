@@ -11,19 +11,12 @@ function getrestaurants()
     {
         xhr.open('GET', 'https://us-central1-justateapp.cloudfunctions.net/getrestaurants');
     }
-
+ 
     // Track the state changes of the request.
-    xhr.onreadystatechange = function () 
-    {
-        var DONE = 4; // readyState 4 means the request is done. 
-        var OK = 200; // status 200 is a successful return.
-        if (xhr.readyState === DONE) 
-        {
-            if (xhr.status === OK) 
-            {
-                
-                if(xhr.responseText != "Restaurants collection empty")
-                {
+    xhr.onreadystatechange = function (){
+        if (xhr.readyState === 4){ // readyState 4 means the request is done. 
+            if (xhr.status === 200){ // status 200 is a successful return.
+                if(xhr.responseText != "Restaurants collection empty"){
                     var data = JSON.parse(xhr.responseText); 
                     // visible icons of the modals -> when clicked displays the inside of the modal
                     var mHTML = "<section class='page-section bg-light' id='portfolio'>";
@@ -73,8 +66,14 @@ function getrestaurants()
                             var restaurant = {"name":data[i].name};
                             var obj = Object.assign({},restaurant,data[i].starters[j]);
                             var dataToCart = JSON.stringify(obj);
+<<<<<<< HEAD
                             sHTML += "<p><button class='btn btn-primary btn-sm' type='button' onmouseup='buttonReleased(this);' onmousedown='buttonPressed(this);'  onclick='addToList("+dataToCart+"); toggleButtonClass(this);' > Add to Cart </button> </p>";
+=======
+                            var restUID = JSON.stringify(data[i].uid);
+                            sHTML += "<p><button class='btn btn-primary btn-sm' type='button' onclick='checkNumRest("+dataToCart+","+restUID+");' > Add to Cart </button> </p>";
+>>>>>>> 14237888875262f6362d53bd10bd1a2a303ccb60
                             sHTML += " </div></div>";
+
                         }
                         sHTML += "</div>";
 
@@ -89,7 +88,12 @@ function getrestaurants()
                             var restaurant = {"name":data[i].name};
                             var obj = Object.assign({},restaurant,data[i].mains[j]);
                             var dataToCart = JSON.stringify(obj);
+<<<<<<< HEAD
                             sHTML += "<p> <button class='btn btn-primary btn-sm' type='button' onmouseup='buttonReleased(this);' onmousedown='buttonPressed(this);'  onclick='addToList("+dataToCart+"); toggleButtonClass(this);' > Add to Cart </button> </p>";
+=======
+                            var restUID = JSON.stringify(data[i].uid);
+                            sHTML += "<p> <button class='btn btn-primary btn-sm' type='button' onclick='checkNumRest("+dataToCart+","+ restUID+");' > Add to Cart </button> </p>";
+>>>>>>> 14237888875262f6362d53bd10bd1a2a303ccb60
                             sHTML += " </div></div>";
                         }
                         sHTML += "</div>";
@@ -105,7 +109,12 @@ function getrestaurants()
                             var restaurant = {"name":data[i].name};
                             var obj = Object.assign({},restaurant,data[i].desserts[j]);
                             var dataToCart = JSON.stringify(obj);
+<<<<<<< HEAD
                             sHTML += "<p><button class='btn btn-primary btn-sm' type='button' onmouseup='buttonReleased(this);' onmousedown='buttonPressed(this);' onclick='addToList("+dataToCart+");'>Add to Cart</button> </p>";
+=======
+                            var restUID = JSON.stringify(data[i].uid);
+                            sHTML += "<p><button class='btn btn-primary btn-sm' type='button' onclick='checkNumRest("+dataToCart+","+restUID+");'>Add to Cart</button> </p>";
+>>>>>>> 14237888875262f6362d53bd10bd1a2a303ccb60
                             sHTML += " </div></div>";
                         }
                         sHTML += "</div>";

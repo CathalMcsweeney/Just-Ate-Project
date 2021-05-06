@@ -1,5 +1,4 @@
-function loadRestaurantMenu() 
-{
+function loadRestaurantMenu(){
     console.log("Function called");
 
     var xhr = new XMLHttpRequest();
@@ -29,10 +28,10 @@ function loadRestaurantMenu()
                         genInfo.innerHTML = sHTML;
 
                         sHTML = "";
-                        for(var j = 0; j < data[i].desserts.length; j++){
-                            sHTML+= "<div class='form-group col-6'><input type='text' class='form-control col-xs-3' value='"+data[i].desserts[j].item+"'></div>"
-                            sHTML+= "<div class='form-group col-2'><input type='text' class='form-control col-xs-3' value='"+data[i].desserts[j].price+"'></div>"
-                            sHTML+= "<div class='form-group col-2'><input type='text' class='form-control col-xs-3' value='"+data[i].desserts[j].preptime+"'></div>"
+                        for(var j = 0; j < data[i].starters.length; j++){
+                            sHTML+= "<div class='form-group col-6'><input type='text' class='form-control col-xs-3' value='"+data[i].starters[j].item+"'></div>"
+                            sHTML+= "<div class='form-group col-2'><input type='text' class='form-control col-xs-3' value='"+data[i].starters[j].price+"'></div>"
+                            sHTML+= "<div class='form-group col-2'><input type='text' class='form-control col-xs-3' value='"+data[i].starters[j].preptime+"'></div>"
                         }
                         starters.innerHTML = sHTML;
                         sHTML = ""; 
